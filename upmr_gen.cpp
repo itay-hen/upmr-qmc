@@ -426,7 +426,7 @@ int main(int argc, char** argv) {
     // observables: 0 Re ph, 1 Im ph, 2 E, 3 q, then per tag n_tag, then obs root, obs weighted
     int T = m.tags.size(), NO = m.obs.size(), NV = 4 + T + 2 * NO;
     long qmax = 0; auto t0 = std::chrono::steady_clock::now(); std::clock_t c0 = std::clock();
-    long per = prod / nbins; vector<vector<double>> bins; long nmeas = 0, nsweep = 0;
+    long per = prod / nbins; vector<vector<double>> bins; vector<long> closed_counts; long nmeas = 0, nsweep = 0;
     vector<double> Eser;
     for (int b = 0; b < nbins; b++) {
         vector<double> sum(NV, 0); long cnt = 0;
@@ -449,16 +449,22 @@ int main(int argc, char** argv) {
             for (int i = 0; i < NV; i++) sum[i] += v[i];
             cnt++; Eser.push_back(Eest);
         }
-        for (int i = 0; i < NV; i++) sum[i] /= std::max(1L, cnt);
+        // Preserve raw sums; all closed visits have equal weight.
+        closed_counts.push_back(cnt);
+        if (argd(argc, argv, "--rawbins", 0) > 0) {
+            printf("RAW_BIN %d %ld", b, cnt); for (double v : sum) printf(" %.17g", v); printf("\n");
+        }
         bins.push_back(sum); nmeas += cnt;
     }
     double secs = std::chrono::duration<double>(std::chrono::steady_clock::now() - t0).count(); double cpusecs = double(std::clock() - c0) / CLOCKS_PER_SEC;
     int Bn = bins.size();
     auto stat = [&](auto f) {
+        if (Bn < 2 || nmeas == 0) throw std::runtime_error("Need at least two bins and closed measurements");
+        for (long c : closed_counts) if (nmeas == c) throw std::runtime_error("Jackknife needs closed visits in more than one bin");
         vector<double> tot(NV, 0); for (auto& b : bins) for (int i = 0; i < NV; i++) tot[i] += b[i];
-        vector<double> full(NV); for (int i = 0; i < NV; i++) full[i] = tot[i] / Bn;
+        vector<double> full(NV); for (int i = 0; i < NV; i++) full[i] = tot[i] / nmeas;
         double est = f(full); vector<double> jk(Bn); double mj = 0, m2 = 0;
-        for (int b = 0; b < Bn; b++) { vector<double> x(NV); for (int i = 0; i < NV; i++) x[i] = (tot[i] - bins[b][i]) / (Bn - 1); jk[b] = f(x); mj += jk[b]; }
+        for (int b = 0; b < Bn; b++) { vector<double> x(NV); for (int i = 0; i < NV; i++) x[i] = (tot[i] - bins[b][i]) / (nmeas - closed_counts[b]); jk[b] = f(x); mj += jk[b]; }
         mj /= Bn; for (double x : jk) m2 += (x - mj) * (x - mj);
         return std::make_pair(est, std::sqrt(m2 * (Bn - 1) / Bn));
     };

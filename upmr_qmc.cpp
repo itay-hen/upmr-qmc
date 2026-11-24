@@ -379,7 +379,7 @@ int main(int argc, char** argv) {
     if (argd(argc, argv, "--steps", 0) > 0) nsteps = (long)argd(argc, argv, "--steps", 0);
     auto steps_in_sweep = [&]() { return nsteps; };
     long qmax = 0; auto t0 = std::chrono::steady_clock::now(); std::clock_t c0 = std::clock();
-    long per = prod / nbins; vector<vector<double>> bins;   // per bin: sums
+    long per = prod / nbins; vector<vector<double>> bins; vector<long> closed_counts;   // per bin: sums
     vector<double> acc(9, 0); long nmeas = 0, nsweep = 0;
     // per-sweep series of E for autocorrelation (closed measurements only)
     vector<double> Eseries;
@@ -396,17 +396,23 @@ int main(int argc, char** argv) {
             for (int i = 0; i < 9; i++) sum[i] += v[i];
             Eseries.push_back(r.E);
         }
-        for (int i = 0; i < 9; i++) sum[i] /= std::max(1L, cnt);
+        // Preserve raw sums; all closed visits have equal weight.
+        closed_counts.push_back(cnt);
+        if (argd(argc, argv, "--rawbins", 0) > 0) {
+            printf("RAW_BIN %d %ld", b, cnt); for (double v : sum) printf(" %.17g", v); printf("\n");
+        }
         bins.push_back(sum); nmeas += cnt;
     }
     double secs = std::chrono::duration<double>(std::chrono::steady_clock::now() - t0).count(); double cpusecs = double(std::clock() - c0) / CLOCKS_PER_SEC;
     // jackknife over bins
     int B = bins.size();
     auto stat = [&](auto f) {
+        if (B < 2 || nmeas == 0) throw std::runtime_error("Need at least two bins and closed measurements");
+        for (long c : closed_counts) if (nmeas == c) throw std::runtime_error("Jackknife needs closed visits in more than one bin");
         vector<double> tot(9, 0); for (auto& b : bins) for (int i = 0; i < 9; i++) tot[i] += b[i];
-        vector<double> full(9); for (int i = 0; i < 9; i++) full[i] = tot[i] / B;
+        vector<double> full(9); for (int i = 0; i < 9; i++) full[i] = tot[i] / nmeas;
         double est = f(full), m2 = 0; vector<double> jk(B);
-        for (int b = 0; b < B; b++) { vector<double> x(9); for (int i = 0; i < 9; i++) x[i] = (tot[i] - bins[b][i]) / (B - 1); jk[b] = f(x); }
+        for (int b = 0; b < B; b++) { vector<double> x(9); for (int i = 0; i < 9; i++) x[i] = (tot[i] - bins[b][i]) / (nmeas - closed_counts[b]); jk[b] = f(x); }
         double mj = 0; for (double x : jk) mj += x; mj /= B;
         for (double x : jk) m2 += (x - mj) * (x - mj);
         return std::make_pair(est, std::sqrt(m2 * (B - 1) / B));

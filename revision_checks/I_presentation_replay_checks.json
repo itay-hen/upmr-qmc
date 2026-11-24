@@ -1,0 +1,64 @@
+{
+  "open.spec": {
+    "vertices": 1890,
+    "edges": 11600,
+    "tree_edges": 1889,
+    "generators": 9711,
+    "triangles": 0,
+    "quadrilaterals": 95760,
+    "history": [
+      [
+        0,
+        9710,
+        1,
+        32360
+      ],
+      [
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        2,
+        0,
+        0,
+        0
+      ]
+    ],
+    "remaining_generators": 0,
+    "remaining_relations": 0,
+    "example_remaining": []
+  },
+  "ring0.spec": {
+    "vertices": 1890,
+    "edges": 14600,
+    "tree_edges": 1889,
+    "generators": 12711,
+    "triangles": 0,
+    "quadrilaterals": 191138,
+    "history": [
+      [
+        0,
+        12710,
+        1,
+        48518
+      ],
+      [
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        2,
+        0,
+        0,
+        0
+      ]
+    ],
+    "remaining_generators": 0,
+    "remaining_relations": 0,
+    "example_remaining": []
+  }
+}

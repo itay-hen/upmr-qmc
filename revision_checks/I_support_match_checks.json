@@ -1,0 +1,22 @@
+{
+  "open.spec": {
+    "matrix_abs_error": 5.551115123125783e-17,
+    "labels": 24,
+    "templates": 74,
+    "minimum_nonzero_hop_amplitude": 0.21213203435596426,
+    "oriented_twoarc_quadrilaterals": 191520,
+    "handled_by_pair_and_swap": 58224,
+    "handled_by_templates": 133296,
+    "missing_quadrilateral_templates": 0
+  },
+  "ring0.spec": {
+    "matrix_abs_error": 5.551115123125783e-17,
+    "labels": 30,
+    "templates": 168,
+    "minimum_nonzero_hop_amplitude": 0.21213203435596426,
+    "oriented_twoarc_quadrilaterals": 382276,
+    "handled_by_pair_and_swap": 89540,
+    "handled_by_templates": 292736,
+    "missing_quadrilateral_templates": 0
+  }
+}
