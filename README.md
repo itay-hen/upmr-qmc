@@ -73,4 +73,17 @@ recomputes the weight of every weight-preserving nonlocal move (`weight_check_fa
     bash -c 'while read n a; do ./upmr_qmc $a > runs/$n.out; done < jobs.txt'          # spin-boson
     python3 make_tables_mixed.py; python3 make_tables.py
 
-Timings in the raw outputs were measured on a shared, heavily loaded workstation.
+Wall-clock timings in `runs/` and `gen/runs/` were measured on a shared, heavily loaded
+workstation. The timings quoted in the paper are single-core CPU (process) times from short
+reruns with identical parameters, stored in `timing/` (`cpu_ms_per_sweep`).
+
+## Kernel accuracy
+
+`kernel_test.py` compares `log_edd` with 2000-digit divided differences: the absolute error in
+ln|f| is ~1e-13 for q <= 160, beta <= 10. For q ≳ 180 at beta >= 5 the double-precision Taylor
+scheme runs out of range; the samplers then abort with an error instead of returning a wrong
+weight. `q_max` in each output reports the largest expansion order reached.
+
+## License
+
+MIT, see `LICENSE`.

@@ -48,7 +48,7 @@ ED & $-0.35678$ & $0.88764$ & $-1.19403$ & $3.80655$ \\
 \end{table}
 
 \begin{table*}[t]
-\caption{Chains of $N_s$ spin--boson pairs, Eq.~\eqref{eq:H_SB} with $\epsilon=\omega_0=1$, $g=0.6$, $J=0.5$ (open chain), $n_{\max}=10$, $\beta=5$; $4\times10^6$ sweeps per run. ``loc'': basis-state, swap, and pair moves; ``nl'': in addition re-rooting, inner-loop reversal, and segment exchange. ``steps'' is the number of elementary steps per sweep (for the runs with nonlocal moves); $\sigma(\cdot)$ denotes the statistical error of the root estimator of $\langle\sigma^z\rangle$ and of $\langle n\rangle$ (per site). Timings were taken on a shared, heavily loaded workstation and are indicative only. ED values for $N_s=4$ ($\dim\mathcal H=234{,}256$) are from Lanczos diagonalization in the 16 sectors of the conserved local parities $\sigma^z_i(-1)^{n_i}$, keeping the lowest 160 levels per sector.}
+\caption{Chains of $N_s$ spin--boson pairs, Eq.~\eqref{eq:H_SB} with $\epsilon=\omega_0=1$, $g=0.6$, $J=0.5$ (open chain), $n_{\max}=10$, $\beta=5$; $4\times10^6$ sweeps per run. ``loc'': basis-state, swap, and pair moves; ``nl'': in addition re-rooting, inner-loop reversal, and segment exchange. ``steps'' is the number of elementary steps per sweep (for the runs with nonlocal moves); $\sigma(\cdot)$ denotes the statistical error of the root estimator of $\langle\sigma^z\rangle$ and of $\langle n\rangle$ (per site). Timings are single-core CPU (process) times per sweep, measured in separate short runs with the same parameters. ED values for $N_s=4$ ($\dim\mathcal H=234{,}256$) are from Lanczos diagonalization in the 16 sectors of the conserved local parities $\sigma^z_i(-1)^{n_i}$, keeping the lowest 160 levels per sector.}
 \label{tab:scaling}
 \footnotesize
 \begin{tabular}{r|lll|ll|r|c|c|c|c}
@@ -56,10 +56,10 @@ ED & $-0.35678$ & $0.88764$ & $-1.19403$ & $3.80655$ \\
 $N_s$ & $\langle H\rangle_{\rm loc}$ & $\langle H\rangle_{\rm nl}$ & $\langle H\rangle_{\rm ED}$ & $\langle q\rangle_{\rm nl}$ & $-\beta\langle H_{\rm off}\rangle_{\rm ED}$ & steps & ms/sweep & $\tau_{\rm int}(H)$ & $\sigma(\sigma^z_{\rm root})$ & $\sigma(n_{\rm root})$\\
  & & & & & & & loc / nl & loc / nl & loc / nl & loc / nl\\
 \hline
-1 & $-0.64847(36)$ & $-0.64914(38)$ & $-0.64899$ & $2.4501(70)$ & $2.45188$ & 5 & 0.013 / 0.013 & 2.6 / 3.9 & 0.0019 / 0.0008 & 0.0023 / 0.0010\\
-2 & $-1.06388(55)$ & $-1.06569(88)$ & $-1.06407$ & $6.102(10)$ & $6.08843$ & 10 & 0.040 / 0.039 & 2.4 / 5.6 & 0.0007 / 0.0004 & 0.0025 / 0.0007\\
-3 & $-1.82034(77)$ & $-1.8190(10)$ & $-1.82002$ & $7.263(17)$ & $7.24022$ & 13 & 0.055 / 0.053 & 4.5 / 5.8 & 0.0010 / 0.0003 & 0.0019 / 0.0007\\
-4 & $-2.2650(10)$ & $-2.2650(12)$ & $-2.26499$ & $10.691(23)$ & $10.686$ & 19 & 0.094 / 0.094 & 4.8 / 4.4 & 0.0006 / 0.0003 & 0.0019 / 0.0008\\
+1 & $-0.64847(36)$ & $-0.64914(38)$ & $-0.64899$ & $2.4501(70)$ & $2.45188$ & 5 & 0.006 / 0.007 & 2.6 / 3.9 & 0.0019 / 0.0008 & 0.0023 / 0.0010\\
+2 & $-1.06388(55)$ & $-1.06569(88)$ & $-1.06407$ & $6.102(10)$ & $6.08843$ & 10 & 0.021 / 0.020 & 2.4 / 5.6 & 0.0007 / 0.0004 & 0.0025 / 0.0007\\
+3 & $-1.82034(77)$ & $-1.8190(10)$ & $-1.82002$ & $7.263(17)$ & $7.24022$ & 13 & 0.029 / 0.028 & 4.5 / 5.8 & 0.0010 / 0.0003 & 0.0019 / 0.0007\\
+4 & $-2.2650(10)$ & $-2.2650(12)$ & $-2.26499$ & $10.691(23)$ & $10.686$ & 19 & 0.048 / 0.045 & 4.8 / 4.4 & 0.0006 / 0.0003 & 0.0019 / 0.0008\\
 \hline\hline
 \end{tabular}
 \end{table*}

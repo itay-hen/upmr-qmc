@@ -22,6 +22,7 @@
 
 #include <algorithm>
 #include <chrono>
+#include <ctime>
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>
@@ -55,7 +56,7 @@ static double log_edd(const vector<double>& E, double beta) {
         if (k >= L) {
             S += v[0];
             if (k > 2 * N && mx < 1e-18 * S) break;
-            if (k > 100000) { fprintf(stderr, "log_edd: no convergence\n"); break; }
+            if (k > 100000) { fprintf(stderr, "log_edd: no convergence (q=%d); aborting\n", L); exit(2); }
         }
     }
     return L * std::log(beta) - ymax + std::log(S) + logscale;
@@ -377,7 +378,7 @@ int main(int argc, char** argv) {
     nsteps = (long)std::lround(qsum / std::max(1L, qn)) + S.nc + 1;
     if (argd(argc, argv, "--steps", 0) > 0) nsteps = (long)argd(argc, argv, "--steps", 0);
     auto steps_in_sweep = [&]() { return nsteps; };
-    auto t0 = std::chrono::steady_clock::now();
+    long qmax = 0; auto t0 = std::chrono::steady_clock::now(); std::clock_t c0 = std::clock();
     long per = prod / nbins; vector<vector<double>> bins;   // per bin: sums
     vector<double> acc(9, 0); long nmeas = 0, nsweep = 0;
     // per-sweep series of E for autocorrelation (closed measurements only)
@@ -386,7 +387,7 @@ int main(int argc, char** argv) {
         vector<double> sum(9, 0); long cnt = 0;
         for (long s = 0; s < per; s++) {
             for (long k = steps_in_sweep(); k > 0; k--) S.step();
-            nsweep++;
+            nsweep++; qmax = std::max(qmax, (long)S.word.size());
             if (!S.is_closed()) continue;
             auto r = S.measure(); cnt++;
             double sg = r.sgn;
@@ -398,7 +399,7 @@ int main(int argc, char** argv) {
         for (int i = 0; i < 9; i++) sum[i] /= std::max(1L, cnt);
         bins.push_back(sum); nmeas += cnt;
     }
-    double secs = std::chrono::duration<double>(std::chrono::steady_clock::now() - t0).count();
+    double secs = std::chrono::duration<double>(std::chrono::steady_clock::now() - t0).count(); double cpusecs = double(std::clock() - c0) / CLOCKS_PER_SEC;
     // jackknife over bins
     int B = bins.size();
     auto stat = [&](auto f) {
@@ -433,8 +434,8 @@ int main(int argc, char** argv) {
     printf("SIGN %.6f %.6f\n", sgnav.first, sgnav.second);
     printf("RESULT E %.6f %.6f szroot %.6f %.6f szw %.6f %.6f n %.6f %.6f q %.5f %.5f chi %.5f %.5f\n",
            E.first, E.second, szr.first, szr.second, szw.first, szw.second, n.first, n.second, q.first, q.second, chi.first, chi.second);
-    printf("steps_per_sweep %ld closed_frac %.4f  ms_per_sweep %.4f  tau_int_E %.2f  weight_check_fail %ld\n",
-           nsteps, (double)nmeas / nsweep, 1e3 * secs / nsweep, tau, S.weight_check_fail);
+    printf("steps_per_sweep %ld closed_frac %.4f  ms_per_sweep %.4f  tau_int_E %.2f  weight_check_fail %ld cpu_ms_per_sweep %.4f q_max %ld\n",
+           nsteps, (double)nmeas / nsweep, 1e3 * secs / nsweep, tau, S.weight_check_fail, 1e3 * cpusecs / nsweep, qmax);
     for (auto& kv : S.stats) printf("  acc %-9s %ld/%ld = %.3f\n", kv.first.c_str(), kv.second.second, kv.second.first,
                                     kv.second.first ? (double)kv.second.second / kv.second.first : 0.0);
     return 0;

@@ -19,9 +19,9 @@ def pe(v, e):
     if e == 0: return f"{v:.4f}"
     nd = max(0, 1 - int(math.floor(math.log10(e)))); return f"{v:.{nd}f}({round(e*10**nd)})"
 def f4(x): return f"{x:.4f}"
-OBS = [('E', 'E', r'$\langle H\rangle$'), ('q', 'q', r'$\langle q\rangle$'), ('H_kin', 'H_kin', r'$\langle H_t\rangle$'),
+OBS = [('E', 'E', r'$\langle H\rangle$'), ('q', 'q', r'$\langle q\rangle$'), ('H_kin', 'H_kin', r'$\langle H_{\rm hop}\rangle$'),
        ('H_ssh', 'H_ssh', r'$\langle H_g\rangle$'), ('H_Kflip', 'H_Kflip', r'$\langle H_{K,\perp}\rangle$'),
-       ('H_Sx', 'H_Sx', r'$\langle H_\gamma\rangle$'), ('docc', 'docc', r'$\langle n_{\uparrow}n_{\downarrow}\rangle$'),
+       ('H_Sx', 'H_Sx', r'$\langle H_\gamma\rangle$'), ('docc', 'docc', r'$\langle n_d\rangle$'),
        ('nph', 'nph', r'$\langle a^\dagger a\rangle$'), ('Sz2', 'Sz2', r'$\langle (S^z)^2\rangle$'), ('SzSz0', 'SzSz0', r'$\langle S^zs^z_0\rangle$')]
 def zs(r, e, k):
     v, s = r[k]; return abs(v - e) / s if s > 0 else 0
@@ -30,7 +30,7 @@ out = []; maxdev = []
 cols = [('O_b1', 1.0), ('O_b2', 2.0), ('O_b4', 4.0)]
 R = {f: res(f) for f, _ in cols}
 out.append(r"""\begin{table*}[t]
-\caption{Fermion--spin--boson benchmark, Eq.~\eqref{eq:H_mix}, open chain: QMC versus ED (dimension of the $N=4$ sector: 1890). $L=4$, $t=1$, $U=4$, $\omega_0=1$, $g=0.3$, $J_K=1$, $D=0.5$, $\gamma=0.3$, $S=1$, $n_{\max}=8$. All moves (basis shifts, swap, pair, subcycle replacement with automatically generated templates, re-rooting, reversal, segment exchange), $2\times10^6$ sweeps per $\beta$. $H_t$, $H_g$, $H_{K,\perp}=\tfrac{J_K}{2}(S^+s_0^-+S^-s_0^+)$, and $H_\gamma$ are the off-diagonal parts of $H$, measured from vertex counts; the remaining diagonal observables use the $\omega_k$-weighted estimator. Every sampled weight was nonnegative.}
+\caption{Fermion--spin--boson benchmark, Eq.~\eqref{eq:H_mix}, open chain: QMC versus ED (dimension of the $N=4$ sector: 1890). $L=4$, $t=1$, $U=4$, $\omega_0=1$, $g=0.3$, $J_K=1$, $D=0.5$, $\gamma=0.3$, $S=1$, $n_{\max}=8$. All moves (basis shifts, swap, pair, subcycle replacement with automatically generated templates, re-rooting, reversal, segment exchange), $2\times10^6$ sweeps per $\beta$. $H_{\rm hop}$, $H_g$, $H_{K,\perp}=\tfrac{J_K}{2}(S^+s_0^-+S^-s_0^+)$, and $H_\gamma$ are the off-diagonal parts of $H$ (hopping, boson-assisted hopping, transverse Kondo, and impurity--boson terms), measured from vertex counts; $n_d=\sum_i n_{i\uparrow}n_{i\downarrow}$ is the total double occupancy; the remaining diagonal observables use the $\omega_k$-weighted estimator. Every sampled weight was nonnegative.}
 \label{tab:mix_open}
 \begin{tabular}{l|ll|ll|ll}
 \hline\hline
@@ -56,7 +56,7 @@ out.append(r"""\begin{table*}[t]
 \small
 \begin{tabular}{ll|l|ll|ll|ll|ll}
 \hline\hline
-$\phi$ & $\beta$ & $\langle e^{i\theta}\rangle$ & $\langle H\rangle_{\rm QMC}$ & $\langle H\rangle_{\rm ED}$ & $\langle n_\uparrow n_\downarrow\rangle_{\rm QMC}$ & ED & $\langle H_{K,\perp}\rangle_{\rm QMC}$ & ED & $\langle q\rangle_{\rm QMC}$ & ED\\
+$\phi$ & $\beta$ & $\langle e^{i\theta}\rangle$ & $\langle H\rangle_{\rm QMC}$ & $\langle H\rangle_{\rm ED}$ & $\langle n_d\rangle_{\rm QMC}$ & ED & $\langle H_{K,\perp}\rangle_{\rm QMC}$ & ED & $\langle q\rangle_{\rm QMC}$ & ED\\
 \hline""")
 for f, phi, b, plab, bl in rcols:
     e = ED[('ring%.4f' % phi, b)]; r = RR[f]
