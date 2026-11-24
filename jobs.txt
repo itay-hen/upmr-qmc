@@ -1,0 +1,16 @@
+A_b0.1 --model sb --nmax 8 --g 0.6 --beta 0.1 --nonlocal 1 --sweeps 2e7 --therm 1e5 --seed 11
+A_b0.5 --model sb --nmax 8 --g 0.6 --beta 0.5 --nonlocal 1 --sweeps 2e7 --therm 1e5 --seed 12
+A_b1 --model sb --nmax 8 --g 0.6 --beta 1 --nonlocal 1 --sweeps 2e7 --therm 1e5 --seed 13
+A_b2 --model sb --nmax 8 --g 0.6 --beta 2 --nonlocal 1 --sweeps 2e7 --therm 1e5 --seed 14
+A_b5 --model sb --nmax 8 --g 0.6 --beta 5 --nonlocal 1 --sweeps 2e7 --therm 1e5 --seed 15
+A_b10 --model sb --nmax 8 --g 0.6 --beta 10 --nonlocal 1 --sweeps 2e7 --therm 1e5 --seed 16
+B_g0 --model sb --nmax 10 --g 0 --beta 5 --nonlocal 1 --sweeps 2e6 --therm 1e4 --seed 21
+B_g0.5 --model sb --nmax 10 --g 0.5 --beta 5 --nonlocal 1 --sweeps 2e7 --therm 1e5 --seed 22
+B_g0.8 --model sb --nmax 10 --g 0.8 --beta 5 --nonlocal 1 --sweeps 2e7 --therm 1e5 --seed 23
+B_g1 --model sb --nmax 10 --g 1 --beta 5 --nonlocal 1 --sweeps 2e7 --therm 1e5 --seed 24
+B_g2 --model sb --nmax 10 --g 2 --beta 5 --nonlocal 1 --sweeps 5e6 --therm 1e5 --seed 25
+C_base --model h3 --nmax 40 --g 0.6 --h 0.5 --kap 0.3 --beta 2 --sweeps 1e7 --therm 1e5 --seed 31
+C_sub --model h3 --nmax 40 --g 0.6 --h 0.5 --kap 0.3 --beta 2 --sub 1 --sweeps 1e7 --therm 1e5 --seed 32
+C_worm --model h3 --nmax 40 --g 0.6 --h 0.5 --kap 0.3 --beta 2 --worm 1 --sweeps 1e7 --therm 1e5 --seed 33
+C_all --model h3 --nmax 40 --g 0.6 --h 0.5 --kap 0.3 --beta 2 --sub 1 --nonlocal 1 --worm 1 --sweeps 1e7 --therm 1e5 --seed 34
+W_sb --model sb --nmax 8 --g 0.6 --beta 5 --worm 1 --sweeps 1e7 --therm 1e5 --seed 41

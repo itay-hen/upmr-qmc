@@ -1,0 +1,8 @@
+D_N1_loc --model sb --Ns 1 --J 0.5 --nmax 10 --g 0.6 --beta 5 --sweeps 4e6 --therm 1e5 --seed 51
+D_N2_loc --model sb --Ns 2 --J 0.5 --nmax 10 --g 0.6 --beta 5 --sweeps 4e6 --therm 1e5 --seed 52
+D_N3_loc --model sb --Ns 3 --J 0.5 --nmax 10 --g 0.6 --beta 5 --sweeps 4e6 --therm 1e5 --seed 53
+D_N4_loc --model sb --Ns 4 --J 0.5 --nmax 10 --g 0.6 --beta 5 --sweeps 4e6 --therm 1e5 --seed 54
+D_N1_nl --model sb --Ns 1 --J 0.5 --nmax 10 --g 0.6 --beta 5 --nonlocal 1 --sweeps 4e6 --therm 1e5 --seed 61
+D_N2_nl --model sb --Ns 2 --J 0.5 --nmax 10 --g 0.6 --beta 5 --nonlocal 1 --sweeps 4e6 --therm 1e5 --seed 62
+D_N3_nl --model sb --Ns 3 --J 0.5 --nmax 10 --g 0.6 --beta 5 --nonlocal 1 --sweeps 4e6 --therm 1e5 --seed 63
+D_N4_nl --model sb --Ns 4 --J 0.5 --nmax 10 --g 0.6 --beta 5 --nonlocal 1 --sweeps 4e6 --therm 1e5 --seed 64

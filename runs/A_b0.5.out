@@ -1,0 +1,12 @@
+model=sb Ns=1 nmax=8 eps=1 om=1 g=0.6 J=0 h=0 kap=0 beta=0.5 sub=0 nonlocal=1 worm=0 mu=1
+SIGN 1.000000 0.000000
+RESULT E 0.923321 0.002958 szroot -0.220406 0.000426 szw -0.220289 0.000406 n 1.682457 0.004176 q 0.32451 0.00084 chi -0.21257 0.00006
+steps_per_sweep 3 closed_frac 1.0000  ms_per_sweep 0.0024  tau_int_E 21.65  weight_check_fail 0
+  acc basis     7093565/10052059 = 0.706
+  acc exch_eq   1257/757354 = 0.002
+  acc exch_opp  722899/757433 = 0.954
+  acc pair_del  739908/5027316 = 0.147
+  acc pair_ins  739908/5027388 = 0.147
+  acc reroot    1392942/1516047 = 0.919
+  acc reversal  338501/1025338 = 0.330
+  acc swap      1221491/1478996 = 0.826

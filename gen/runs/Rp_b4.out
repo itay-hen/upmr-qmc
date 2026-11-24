@@ -1,0 +1,14 @@
+spec=gen/ring_pi.spec comps=10 labels=30 diag_strings=8 templates=168 hermitian_pairing_failures=0
+beta=4 sub=1 nonlocal=1 worm=0 mu=1 seed=224
+PHASE re 0.947336 0.004092 im 0.000000 0.000000
+RESULT E -5.934405 0.013475 q 48.892820 0.103691 H_kin -5.346830 0.007829 H_ssh -5.725688 0.018645 H_Kflip -0.120200 0.001982 H_Sx -1.030486 0.006646 docc_root 0.727589 0.000758 docc 0.726987 0.000622 nph_root 3.214695 0.013505 nph 3.213781 0.013339 Sz2_root 0.392288 0.001877 Sz2 0.392401 0.001798 SzSz0_root -0.029050 0.000425 SzSz0 -0.029130 0.000375 Nf_root 4.000000 0.000000 Nf 4.000000 0.000000
+steps_per_sweep 60 closed_frac 1.0000 ms_per_sweep 1.3441 tau_int_E 54.76 weight_check_fail 0
+  acc basis_lab 225349/17570564 = 0.013
+  acc exch_eq   337/8777439 = 0.000
+  acc exch_opp  6943/8782351 = 0.001
+  acc pair_del  611193/8784303 = 0.070
+  acc pair_ins  611520/8780989 = 0.070
+  acc reroot    15241274/17562373 = 0.868
+  acc reversal  147119/17201130 = 0.009
+  acc subcycle  1035968/17566265 = 0.059
+  acc swap      13008110/16503235 = 0.788

@@ -1,0 +1,39 @@
+\begin{table*}[t]
+\caption{Fermion--spin--boson benchmark, Eq.~\eqref{eq:H_mix}, open chain: QMC versus ED (dimension of the $N=4$ sector: 1890). $L=4$, $t=1$, $U=4$, $\omega_0=1$, $g=0.3$, $J_K=1$, $D=0.5$, $\gamma=0.3$, $S=1$, $n_{\max}=8$. All moves (basis shifts, swap, pair, subcycle replacement with automatically generated templates, re-rooting, reversal, segment exchange), $2\times10^6$ sweeps per $\beta$. $H_t$, $H_g$, $H_{K,\perp}=\tfrac{J_K}{2}(S^+s_0^-+S^-s_0^+)$, and $H_\gamma$ are the off-diagonal parts of $H$, measured from vertex counts; the remaining diagonal observables use the $\omega_k$-weighted estimator. Every sampled weight was nonnegative.}
+\label{tab:mix_open}
+\begin{tabular}{l|ll|ll|ll}
+\hline\hline
+ & \multicolumn{2}{c|}{$\beta=1$} & \multicolumn{2}{c|}{$\beta=2$} & \multicolumn{2}{c}{$\beta=4$}\\
+ & QMC & ED & QMC & ED & QMC & ED\\
+\hline
+$\langle H\rangle$ & $-1.704(22)$ & $-1.7005$ & $-3.337(16)$ & $-3.3358$ & $-3.8865(99)$ & $-3.9028$ \\
+$\langle q\rangle$ & $4.848(46)$ & $4.8269$ & $14.324(75)$ & $14.2672$ & $32.51(11)$ & $32.6115$ \\
+$\langle H_t\rangle$ & $-2.557(17)$ & $-2.5629$ & $-3.470(13)$ & $-3.4755$ & $-3.7982(78)$ & $-3.8022$ \\
+$\langle H_g\rangle$ & $-1.702(27)$ & $-1.6840$ & $-2.751(23)$ & $-2.7263$ & $-3.240(19)$ & $-3.2524$ \\
+$\langle H_{K,\perp}\rangle$ & $-0.2849(32)$ & $-0.2839$ & $-0.3589(38)$ & $-0.3579$ & $-0.3322(36)$ & $-0.3321$ \\
+$\langle H_\gamma\rangle$ & $-0.3044(70)$ & $-0.2961$ & $-0.5814(75)$ & $-0.5738$ & $-0.7572(56)$ & $-0.7662$ \\
+$\langle n_{\uparrow}n_{\downarrow}\rangle$ & $0.3693(26)$ & $0.3686$ & $0.4812(20)$ & $0.4802$ & $0.5354(13)$ & $0.5357$ \\
+$\langle a^\dagger a\rangle$ & $1.506(16)$ & $1.4900$ & $1.783(15)$ & $1.7609$ & $1.985(13)$ & $1.9927$ \\
+$\langle (S^z)^2\rangle$ & $0.54640(87)$ & $0.5474$ & $0.46656(81)$ & $0.4659$ & $0.4103(13)$ & $0.4090$ \\
+$\langle S^zs^z_0\rangle$ & $-0.11145(66)$ & $-0.1117$ & $-0.11679(96)$ & $-0.1169$ & $-0.09068(87)$ & $-0.0901$ \\
+\hline\hline
+\end{tabular}
+\end{table*}
+
+\begin{table*}[t]
+\caption{Fermion--spin--boson benchmark on the ring (periodic boundary, flux $\phi$), same parameters as Table~\ref{tab:mix_open}. Weights now carry fermionic exchange signs ($\phi=0,\pi$) and complex phases ($\phi=\pi/2$); $\langle e^{i\theta}\rangle$ is the average phase of $w$ under $|w|$ sampling (its imaginary part vanishes within errors). $4\times10^6$ sweeps ($2\times10^6$ at $\beta=4$).}
+\label{tab:mix_ring}
+\small
+\begin{tabular}{ll|l|ll|ll|ll|ll}
+\hline\hline
+$\phi$ & $\beta$ & $\langle e^{i\theta}\rangle$ & $\langle H\rangle_{\rm QMC}$ & $\langle H\rangle_{\rm ED}$ & $\langle n_\uparrow n_\downarrow\rangle_{\rm QMC}$ & ED & $\langle H_{K,\perp}\rangle_{\rm QMC}$ & ED & $\langle q\rangle_{\rm QMC}$ & ED\\
+\hline
+$0$ & 1 & $0.4841(84)$ & $-2.149(35)$ & $-2.1367$ & $0.4139(33)$ & $0.4129$ & $-0.2527(39)$ & $-0.2444$ & $5.664(65)$ & $5.6469$ \\
+$\pi/2$ & 1 & $0.6279(43)$ & $-2.945(27)$ & $-2.9227$ & $0.5052(24)$ & $0.5027$ & $-0.2027(29)$ & $-0.2071$ & $7.232(50)$ & $7.1721$ \\
+$\pi/2$ & 2 & $0.2406(30)$ & $-4.739(29)$ & $-4.7487$ & $0.6322(25)$ & $0.6353$ & $-0.1934(48)$ & $-0.1932$ & $20.12(11)$ & $20.1953$ \\
+$\pi$ & 1 & $0.9200(47)$ & $-3.949(35)$ & $-3.9469$ & $0.5927(25)$ & $0.5929$ & $-0.1674(20)$ & $-0.1669$ & $9.004(60)$ & $8.9991$ \\
+$\pi$ & 2 & $0.9591(33)$ & $-5.664(15)$ & $-5.6650$ & $0.71717(81)$ & $0.7165$ & $-0.1276(19)$ & $-0.1276$ & $23.686(54)$ & $23.6700$ \\
+$\pi$ & 4 & $0.9473(41)$ & $-5.934(13)$ & $-5.9292$ & $0.72699(62)$ & $0.7279$ & $-0.1202(20)$ & $-0.1197$ & $48.89(10)$ & $48.9770$ \\
+\hline\hline
+\end{tabular}
+\end{table*}

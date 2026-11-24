@@ -1,0 +1,9 @@
+model=h3 Ns=1 nmax=40 eps=1 om=1 g=0.6 J=0 h=0.5 kap=0.3 beta=2 sub=1 nonlocal=0 worm=0 mu=1
+SIGN 1.000000 0.000000
+RESULT E -1.193460 0.000857 szroot -0.356761 0.000486 szw -0.356721 0.000295 n 0.888302 0.001770 q 3.80736 0.00403 chi -0.31430 0.00023
+steps_per_sweep 6 closed_frac 1.0000  ms_per_sweep 0.0201  tau_int_E 2.58  weight_check_fail 0
+  acc basis     7081952/15138526 = 0.468
+  acc pair_del  1956031/7572976 = 0.258
+  acc pair_ins  1956068/7574498 = 0.258
+  acc subcycle  3181958/15141157 = 0.210
+  acc swap      6775059/9946316 = 0.681

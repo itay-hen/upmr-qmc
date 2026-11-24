@@ -1,0 +1,14 @@
+spec=gen/open.spec comps=10 labels=24 diag_strings=8 templates=74 hermitian_pairing_failures=0
+beta=2 sub=1 nonlocal=1 worm=0 mu=1 seed=102
+PHASE re 1.000000 0.000000 im 0.000000 0.000000
+RESULT E -3.337149 0.016355 q 14.323849 0.074823 H_kin -3.470313 0.013191 H_ssh -2.751393 0.023498 H_Kflip -0.358851 0.003757 H_Sx -0.581367 0.007514 docc_root 0.481334 0.002039 docc 0.481223 0.002014 nph_root 1.783197 0.014665 nph 1.783387 0.014695 Sz2_root 0.466568 0.000876 Sz2 0.466562 0.000814 SzSz0_root -0.116874 0.000992 SzSz0 -0.116786 0.000957 Nf_root 4.000000 0.000000 Nf 4.000000 0.000000
+steps_per_sweep 24 closed_frac 1.0000 ms_per_sweep 0.2427 tau_int_E 77.12 weight_check_fail 0
+  acc basis_lab 613478/7027622 = 0.087
+  acc exch_eq   13425/3488109 = 0.004
+  acc exch_opp  204472/3486945 = 0.059
+  acc pair_del  426921/3513093 = 0.122
+  acc pair_ins  427377/3515079 = 0.122
+  acc reroot    5603862/6975561 = 0.803
+  acc reversal  393555/6416362 = 0.061
+  acc subcycle  201179/7025982 = 0.029
+  acc swap      4502087/6123357 = 0.735

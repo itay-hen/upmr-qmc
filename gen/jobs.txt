@@ -1,0 +1,11 @@
+O_b1 --spec gen/open.spec --beta 1 --sub 1 --nonlocal 1 --sweeps 2e6 --therm 5e4 --seed 101
+O_b2 --spec gen/open.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 2e6 --therm 5e4 --seed 102
+O_b4 --spec gen/open.spec --beta 4 --sub 1 --nonlocal 1 --sweeps 2e6 --therm 5e4 --seed 104
+O_b2_loc --spec gen/open.spec --beta 2 --sweeps 2e6 --therm 5e4 --seed 112
+O_b2_sub --spec gen/open.spec --beta 2 --sub 1 --sweeps 2e6 --therm 5e4 --seed 122
+R0_b1 --spec gen/ring0.spec --beta 1 --sub 1 --nonlocal 1 --sweeps 4e6 --therm 5e4 --seed 201
+Rh_b1 --spec gen/ring_half.spec --beta 1 --sub 1 --nonlocal 1 --sweeps 4e6 --therm 5e4 --seed 211
+Rh_b2 --spec gen/ring_half.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 4e6 --therm 5e4 --seed 212
+Rp_b1 --spec gen/ring_pi.spec --beta 1 --sub 1 --nonlocal 1 --sweeps 4e6 --therm 5e4 --seed 221
+Rp_b2 --spec gen/ring_pi.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 4e6 --therm 5e4 --seed 222
+Rp_b4 --spec gen/ring_pi.spec --beta 4 --sub 1 --nonlocal 1 --sweeps 2e6 --therm 5e4 --seed 224

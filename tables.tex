@@ -1,0 +1,65 @@
+\begin{table*}[t]
+\caption{UPMR-QMC versus ED for a single spin--boson pair, Eq.~\eqref{eq:H_SB} with $\epsilon=\omega_0=1$, $g=0.6$, $n_{\max}=8$. QMC: $2\times10^7$ sweeps with local and nonlocal moves; $\langle\sigma^z\rangle$ from the weighted estimator~\eqref{eq:diag_estimator_avg}; errors (one standard deviation, jackknife over 100 bins) in the last digits.}
+\label{tab:sb_ed}
+\begin{tabular}{r|ll|ll|ll|ll}
+\hline\hline
+$\beta$ & $\langle\sigma^z\rangle_{\rm QMC}$ & $\langle\sigma^z\rangle_{\rm ED}$ & $\langle n\rangle_{\rm QMC}$ & $\langle n\rangle_{\rm ED}$ & $\langle H\rangle_{\rm QMC}$ & $\langle H\rangle_{\rm ED}$ & $\langle q\rangle_{\rm QMC}$ & $-\beta\langle H_{\rm off}\rangle_{\rm ED}$\\
+\hline
+0.1 & $-0.04977(50)$ & $-0.04954$ & $3.3648(67)$ & $3.35995$ & $3.0868(64)$ & $3.08334$ & $0.02531(15)$ & $0.02518$ \\
+0.5 & $-0.22029(41)$ & $-0.22022$ & $1.6825(42)$ & $1.68450$ & $0.9233(30)$ & $0.92553$ & $0.32451(84)$ & $0.32443$ \\
+1 & $-0.37506(43)$ & $-0.37536$ & $0.9108(17)$ & $0.90905$ & $0.0468(11)$ & $0.04712$ & $0.6765(12)$ & $0.67424$ \\
+2 & $-0.55743(33)$ & $-0.55694$ & $0.45522(66)$ & $0.45615$ & $-0.43386(47)$ & $-0.43375$ & $1.2206(16)$ & $1.22286$ \\
+5 & $-0.73526(26)$ & $-0.73522$ & $0.20887(42)$ & $0.20900$ & $-0.64888(20)$ & $-0.64899$ & $2.4506(28)$ & $2.45188$ \\
+10 & $-0.79619(17)$ & $-0.79633$ & $0.14771(29)$ & $0.14715$ & $-0.69157(13)$ & $-0.69157$ & $4.4082(39)$ & $4.40560$ \\
+\hline\hline
+\end{tabular}
+\end{table*}
+
+\begin{table*}[t]
+\caption{UPMR-QMC versus ED for a single spin--boson pair at $\beta=5$, $\epsilon=\omega_0=1$, $n_{\max}=10$, as a function of $g$. The susceptibility $\chi_z=\partial\langle\sigma^z\rangle/\partial\epsilon$ is measured with the covariance estimator described in the text; ED values are from a finite difference. Values for $n_{\max}=40$ agree with the ED column except at $g=2$ (see text). QMC: $2\times10^7$ sweeps ($5\times10^6$ at $g=2$, $2\times10^6$ at $g=0$).}
+\label{tab:sb_g}
+\begin{tabular}{r|ll|ll|ll|ll}
+\hline\hline
+$g$ & $\langle\sigma^z\rangle_{\rm QMC}$ & $\langle\sigma^z\rangle_{\rm ED}$ & $\langle n\rangle_{\rm QMC}$ & $\langle n\rangle_{\rm ED}$ & $\langle q\rangle_{\rm QMC}$ & $-\beta\langle H_{\rm off}\rangle_{\rm ED}$ & $\chi_{z,\rm QMC}$ & $\chi_{z,\rm ED}$\\
+\hline
+0 & $-0.98586(38)$ & $-0.98661$ & $0.00729(23)$ & $0.00678$ & $0$ & $0.00000$ & $-0.0702(18)$ & $-0.06648$ \\
+0.5 & $-0.81493(22)$ & $-0.81517$ & $0.13098(30)$ & $0.13070$ & $1.5887(20)$ & $1.58648$ & $-0.25987(42)$ & $-0.25941$ \\
+0.8 & $-0.54221(30)$ & $-0.54253$ & $0.46565(64)$ & $0.46493$ & $5.0626(47)$ & $5.05597$ & $-0.38418(21)$ & $-0.38400$ \\
+1 & $-0.35600(26)$ & $-0.35642$ & $0.86093(86)$ & $0.85983$ & $8.8909(68)$ & $8.88108$ & $-0.32696(20)$ & $-0.32706$ \\
+2 & $-0.068198(36)$ & $-0.06819$ & $3.8400(18)$ & $3.84080$ & $39.017(17)$ & $39.034$ & $-0.068250(40)$ & $-0.06818$ \\
+\hline\hline
+\end{tabular}
+\end{table*}
+
+\begin{table}[t]
+\caption{Three-label benchmark, Eq.~\eqref{eq:H3} with $\epsilon=\omega_0=1$, $h=0.5$, $\kappa=0.3$, $g=0.6$, $\beta=2$, $n_{\max}=40$, for different update sets ($10^7$ sweeps each). ``Local'': basis-state, swap, and pair moves. ``All'': local, subcycle, re-rooting, reversal, segment exchange, and worm.}
+\label{tab:h3}
+\begin{tabular}{lllll}
+\hline\hline
+updates & $\langle\sigma^z\rangle$ & $\langle n\rangle$ & $\langle H\rangle$ & $\langle q\rangle$\\
+\hline
+local & $-0.43259(40)$ & $0.6723(19)$ & $-0.9237(11)$ & $2.7595(49)$ \\
+local + subcycle & $-0.35672(30)$ & $0.8883(18)$ & $-1.19346(86)$ & $3.8074(40)$ \\
+local + worm & $-0.35620(78)$ & $0.8958(43)$ & $-1.1927(16)$ & $3.8167(79)$ \\
+all & $-0.35709(77)$ & $0.8860(35)$ & $-1.1952(19)$ & $3.8039(80)$ \\
+ED & $-0.35678$ & $0.88764$ & $-1.19403$ & $3.80655$ \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+\begin{table*}[t]
+\caption{Chains of $N_s$ spin--boson pairs, Eq.~\eqref{eq:H_SB} with $\epsilon=\omega_0=1$, $g=0.6$, $J=0.5$ (open chain), $n_{\max}=10$, $\beta=5$; $4\times10^6$ sweeps per run. ``loc'': basis-state, swap, and pair moves; ``nl'': in addition re-rooting, inner-loop reversal, and segment exchange. $\sigma(\cdot)$ denotes the statistical error of the root estimator of $\langle\sigma^z\rangle$ and of $\langle n\rangle$ (per site). Timings were taken on a shared, heavily loaded workstation and are indicative only. ED values for $N_s=4$ ($\dim\mathcal H=234{,}256$) are from Lanczos diagonalization in the 16 sectors of the conserved local parities $\sigma^z_i(-1)^{n_i}$, keeping the lowest 160 levels per sector.}
+\label{tab:scaling}
+\footnotesize
+\begin{tabular}{r|lll|ll|r|c|c|c|c}
+\hline\hline
+$N_s$ & $\langle H\rangle_{\rm loc}$ & $\langle H\rangle_{\rm nl}$ & $\langle H\rangle_{\rm ED}$ & $\langle q\rangle_{\rm nl}$ & $-\beta\langle H_{\rm off}\rangle_{\rm ED}$ & steps/sweep & ms/sweep & $\tau_{\rm int}(H)$ & $\sigma(\sigma^z_{\rm root})$ & $\sigma(n_{\rm root})$\\
+ & & & & & & & loc / nl & loc / nl & loc / nl & loc / nl\\
+\hline
+1 & $-0.64847(36)$ & $-0.64914(38)$ & $-0.64899$ & $2.4501(70)$ & $2.45188$ & 5 & 0.013 / 0.013 & 2.6 / 3.9 & 0.0019 / 0.0008 & 0.0023 / 0.0010\\
+2 & $-1.06388(55)$ & $-1.06569(88)$ & $-1.06407$ & $6.102(10)$ & $6.08843$ & 10 & 0.040 / 0.039 & 2.4 / 5.6 & 0.0007 / 0.0004 & 0.0025 / 0.0007\\
+3 & $-1.82034(77)$ & $-1.8190(10)$ & $-1.82002$ & $7.263(17)$ & $7.24022$ & 13 & 0.055 / 0.053 & 4.5 / 5.8 & 0.0010 / 0.0003 & 0.0019 / 0.0007\\
+4 & $-2.2650(10)$ & $-2.2650(12)$ & $-2.26499$ & $10.691(23)$ & $10.686$ & 19 & 0.094 / 0.094 & 4.8 / 4.4 & 0.0006 / 0.0003 & 0.0019 / 0.0008\\
+\hline\hline
+\end{tabular}
+\end{table*}

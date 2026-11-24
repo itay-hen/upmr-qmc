@@ -1,0 +1,5 @@
+upmr_qmc
+upmr_gen
+*.o
+__pycache__/
+.DS_Store
