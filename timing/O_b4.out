@@ -2,7 +2,7 @@ spec=gen/open.spec comps=10 labels=24 diag_strings=8 templates=74 hermitian_pair
 beta=4 sub=1 nonlocal=1 worm=0 mu=1 seed=104
 PHASE re 1.000000 0.000000 im 0.000000 0.000000
 RESULT E -3.800688 0.041007 q 31.399880 0.424264 H_kin -3.698805 0.033560 H_ssh -3.087815 0.072161 H_Kflip -0.348535 0.015696 H_Sx -0.714815 0.023702 docc_root 0.521480 0.006497 docc 0.522058 0.005846 nph_root 1.851830 0.050766 nph 1.854467 0.050495 Sz2_root 0.411900 0.005289 Sz2 0.411226 0.005122 SzSz0_root -0.098285 0.004216 SzSz0 -0.099029 0.004115 Nf_root 4.000000 0.000000 Nf 4.000000 0.000000
-steps_per_sweep 43 closed_frac 1.0000 ms_per_sweep 1.2331 tau_int_E 46.78 weight_check_fail 0 cpu_ms_per_sweep 0.3283
+steps_per_sweep 43 closed_frac 1.0000 ms_per_sweep 0.3068 tau_int_E 46.78 weight_check_fail 0 cpu_ms_per_sweep 0.3032 q_max 70
   acc basis_lab 14760/732045 = 0.020
   acc exch_eq   157/367294 = 0.000
   acc exch_opp  1550/366896 = 0.004

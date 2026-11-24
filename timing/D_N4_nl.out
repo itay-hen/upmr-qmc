@@ -1,7 +1,7 @@
 model=sb Ns=4 nmax=10 eps=1 om=1 g=0.6 J=0.5 h=0 kap=0 beta=5 sub=0 nonlocal=1 worm=0 mu=1
 SIGN 1.000000 0.000000
 RESULT E -2.268276 0.005133 szroot -0.301365 0.001517 szw -0.301785 0.001366 n 0.252284 0.003307 q 10.84993 0.09725 chi -0.35956 0.00231
-steps_per_sweep 18 closed_frac 1.0000  ms_per_sweep 0.1686  tau_int_E 5.40  weight_check_fail 0 cpu_ms_per_sweep 0.0454
+steps_per_sweep 18 closed_frac 1.0000  ms_per_sweep 0.0467  tau_int_E 5.40  weight_check_fail 0 cpu_ms_per_sweep 0.0447 q_max 34
   acc basis     116288/660976 = 0.176
   acc exch_eq   6585/327843 = 0.020
   acc exch_opp  46490/328037 = 0.142

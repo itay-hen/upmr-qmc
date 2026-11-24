@@ -2,7 +2,7 @@ spec=gen/ring_half.spec comps=10 labels=30 diag_strings=8 templates=168 hermitia
 beta=2 sub=1 nonlocal=1 worm=0 mu=1 seed=212
 PHASE re 0.253410 0.019450 im 0.008410 0.010031
 RESULT E -4.404351 0.158321 q 18.905173 0.620127 H_kin -4.488418 0.115344 H_ssh -4.030070 0.217132 H_Kflip -0.222091 0.025336 H_Sx -0.712008 0.057113 docc_root 0.607632 0.015527 docc 0.613920 0.014701 nph_root 2.439880 0.119803 nph 2.435478 0.119369 Sz2_root 0.438617 0.008355 Sz2 0.443918 0.007967 SzSz0_root -0.063593 0.005919 SzSz0 -0.064882 0.005275 Nf_root 4.000000 0.000000 Nf 4.000000 0.000000
-steps_per_sweep 33 closed_frac 1.0000 ms_per_sweep 0.6230 tau_int_E 80.71 weight_check_fail 0 cpu_ms_per_sweep 0.1515
+steps_per_sweep 33 closed_frac 1.0000 ms_per_sweep 0.1481 tau_int_E 80.71 weight_check_fail 0 cpu_ms_per_sweep 0.1436 q_max 48
   acc basis_lab 27515/561552 = 0.049
   acc exch_eq   171/280931 = 0.001
   acc exch_opp  2695/280600 = 0.010
