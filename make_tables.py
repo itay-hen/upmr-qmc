@@ -67,12 +67,12 @@ L.append(r"""\hline\hline
 """)
 # Table D
 L.append(r"""\begin{table*}[t]
-\caption{Chains of $N_s$ spin--boson pairs, Eq.~\eqref{eq:H_SB} with $\epsilon=\omega_0=1$, $g=0.6$, $J=0.5$ (open chain), $n_{\max}=10$, $\beta=5$; $4\times10^6$ sweeps per run. ``loc'': basis-state, swap, and pair moves; ``nl'': in addition re-rooting, inner-loop reversal, and segment exchange. $\sigma(\cdot)$ denotes the statistical error of the root estimator of $\langle\sigma^z\rangle$ and of $\langle n\rangle$ (per site). Timings were taken on a shared, heavily loaded workstation and are indicative only. ED values for $N_s=4$ ($\dim\mathcal H=234{,}256$) are from Lanczos diagonalization in the 16 sectors of the conserved local parities $\sigma^z_i(-1)^{n_i}$, keeping the lowest 160 levels per sector.}
+\caption{Chains of $N_s$ spin--boson pairs, Eq.~\eqref{eq:H_SB} with $\epsilon=\omega_0=1$, $g=0.6$, $J=0.5$ (open chain), $n_{\max}=10$, $\beta=5$; $4\times10^6$ sweeps per run. ``loc'': basis-state, swap, and pair moves; ``nl'': in addition re-rooting, inner-loop reversal, and segment exchange. ``steps'' is the number of elementary steps per sweep (for the runs with nonlocal moves); $\sigma(\cdot)$ denotes the statistical error of the root estimator of $\langle\sigma^z\rangle$ and of $\langle n\rangle$ (per site). Timings were taken on a shared, heavily loaded workstation and are indicative only. ED values for $N_s=4$ ($\dim\mathcal H=234{,}256$) are from Lanczos diagonalization in the 16 sectors of the conserved local parities $\sigma^z_i(-1)^{n_i}$, keeping the lowest 160 levels per sector.}
 \label{tab:scaling}
 \footnotesize
 \begin{tabular}{r|lll|ll|r|c|c|c|c}
 \hline\hline
-$N_s$ & $\langle H\rangle_{\rm loc}$ & $\langle H\rangle_{\rm nl}$ & $\langle H\rangle_{\rm ED}$ & $\langle q\rangle_{\rm nl}$ & $-\beta\langle H_{\rm off}\rangle_{\rm ED}$ & steps/sweep & ms/sweep & $\tau_{\rm int}(H)$ & $\sigma(\sigma^z_{\rm root})$ & $\sigma(n_{\rm root})$\\
+$N_s$ & $\langle H\rangle_{\rm loc}$ & $\langle H\rangle_{\rm nl}$ & $\langle H\rangle_{\rm ED}$ & $\langle q\rangle_{\rm nl}$ & $-\beta\langle H_{\rm off}\rangle_{\rm ED}$ & steps & ms/sweep & $\tau_{\rm int}(H)$ & $\sigma(\sigma^z_{\rm root})$ & $\sigma(n_{\rm root})$\\
  & & & & & & & loc / nl & loc / nl & loc / nl & loc / nl\\
 \hline""")
 for N in [1,2,3,4]:
