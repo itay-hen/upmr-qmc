@@ -1,6 +1,7 @@
 \begin{table*}[t]
 \caption{UPMR-QMC versus ED for a single spin--boson pair, Eq.~\eqref{eq:H_SB} with $\epsilon=\omega_0=1$, $g=0.6$, $n_{\max}=8$. QMC: $2\times10^7$ sweeps with local and nonlocal moves; $\langle\sigma^z\rangle$ from the weighted estimator~\eqref{eq:diag_estimator_avg}; errors (one standard deviation, jackknife over 100 bins) in the last digits.}
 \label{tab:sb_ed}
+\small
 \begin{tabular}{r|ll|ll|ll|ll}
 \hline\hline
 $\beta$ & $\langle\sigma^z\rangle_{\rm QMC}$ & $\langle\sigma^z\rangle_{\rm ED}$ & $\langle n\rangle_{\rm QMC}$ & $\langle n\rangle_{\rm ED}$ & $\langle H\rangle_{\rm QMC}$ & $\langle H\rangle_{\rm ED}$ & $\langle q\rangle_{\rm QMC}$ & $-\beta\langle H_{\rm off}\rangle_{\rm ED}$\\
@@ -18,6 +19,7 @@ $\beta$ & $\langle\sigma^z\rangle_{\rm QMC}$ & $\langle\sigma^z\rangle_{\rm ED}$
 \begin{table*}[t]
 \caption{UPMR-QMC versus ED for a single spin--boson pair at $\beta=5$, $\epsilon=\omega_0=1$, $n_{\max}=10$, as a function of $g$. The susceptibility $\chi_z=\partial\langle\sigma^z\rangle/\partial\epsilon$ is measured with the covariance estimator described in the text; ED values are from a finite difference. Values for $n_{\max}=40$ agree with the ED column except at $g=2$ (see text). QMC: $2\times10^7$ sweeps ($5\times10^6$ at $g=2$, $2\times10^6$ at $g=0$).}
 \label{tab:sb_g}
+\small
 \begin{tabular}{r|ll|ll|ll|ll}
 \hline\hline
 $g$ & $\langle\sigma^z\rangle_{\rm QMC}$ & $\langle\sigma^z\rangle_{\rm ED}$ & $\langle n\rangle_{\rm QMC}$ & $\langle n\rangle_{\rm ED}$ & $\langle q\rangle_{\rm QMC}$ & $-\beta\langle H_{\rm off}\rangle_{\rm ED}$ & $\chi_{z,\rm QMC}$ & $\chi_{z,\rm ED}$\\
@@ -31,8 +33,8 @@ $g$ & $\langle\sigma^z\rangle_{\rm QMC}$ & $\langle\sigma^z\rangle_{\rm ED}$ & $
 \end{tabular}
 \end{table*}
 
-\begin{table}[t]
-\caption{Three-label benchmark, Eq.~\eqref{eq:H3} with $\epsilon=\omega_0=1$, $h=0.5$, $\kappa=0.3$, $g=0.6$, $\beta=2$, $n_{\max}=40$, for different update sets ($10^7$ sweeps each). ``Local'': basis-state, swap, and pair moves. ``All'': local, subcycle, re-rooting, reversal, segment exchange, and worm.}
+\begin{table*}[t]
+\caption{Three-label benchmark, Eq.~\eqref{eq:H3} with $\epsilon=\omega_0=1$, $h=0.5$, $\kappa=0.3$, $g=0.6$, $\beta=2$, $n_{\max}=40$, for different update sets ($10^7$ sweeps each). Worm-containing rows are recomputed from raw numerator/denominator sums in replays with identical acceptance counts. ``Local'': basis-state, swap, and pair moves. ``All'': local, subcycle, re-rooting, reversal, segment exchange, and worm.}
 \label{tab:h3}
 \begin{tabular}{lllll}
 \hline\hline
@@ -40,12 +42,12 @@ updates & $\langle\sigma^z\rangle$ & $\langle n\rangle$ & $\langle H\rangle$ & $
 \hline
 local & $-0.43259(40)$ & $0.6723(19)$ & $-0.9237(11)$ & $2.7595(49)$ \\
 local + subcycle & $-0.35672(30)$ & $0.8883(18)$ & $-1.19346(86)$ & $3.8074(40)$ \\
-local + worm & $-0.35620(78)$ & $0.8958(43)$ & $-1.1927(16)$ & $3.8167(79)$ \\
-all & $-0.35709(77)$ & $0.8860(35)$ & $-1.1952(19)$ & $3.8039(80)$ \\
+local + worm & $-0.35631(78)$ & $0.8948(43)$ & $-1.1927(15)$ & $3.8150(79)$ \\
+all & $-0.35717(77)$ & $0.8853(34)$ & $-1.1952(19)$ & $3.8027(79)$ \\
 ED & $-0.35678$ & $0.88764$ & $-1.19403$ & $3.80655$ \\
 \hline\hline
 \end{tabular}
-\end{table}
+\end{table*}
 
 \begin{table*}[t]
 \caption{Chains of $N_s$ spin--boson pairs, Eq.~\eqref{eq:H_SB} with $\epsilon=\omega_0=1$, $g=0.6$, $J=0.5$ (open chain), $n_{\max}=10$, $\beta=5$; $4\times10^6$ sweeps per run. ``loc'': basis-state, swap, and pair moves; ``nl'': in addition re-rooting, inner-loop reversal, and segment exchange. ``steps'' is the number of elementary steps per sweep (for the runs with nonlocal moves); $\sigma(\cdot)$ denotes the statistical error of the root estimator of $\langle\sigma^z\rangle$ and of $\langle n\rangle$ (per site). Timings are single-core CPU (process) times per sweep, measured in separate short runs with the same parameters. ED values for $N_s=4$ ($\dim\mathcal H=234{,}256$) are from Lanczos diagonalization in the 16 sectors of the conserved local parities $\sigma^z_i(-1)^{n_i}$, keeping the lowest 160 levels per sector.}

@@ -82,7 +82,15 @@ reruns with identical parameters, stored in `timing/` (`cpu_ms_per_sweep`).
 `kernel_test.py` compares `log_edd` with 2000-digit divided differences: the absolute error in
 ln|f| is ~1e-13 for q <= 160, beta <= 10. For q ≳ 180 at beta >= 5 the double-precision Taylor
 scheme runs out of range; the samplers then abort with an error instead of returning a wrong
-weight. `q_max` in each output reports the largest expansion order reached.
+weight. They also abort if the arithmetic becomes non-finite (overflow, NaN, or a nonpositive
+sum). `q_max` in each output reports the largest expansion order reached.
+
+The production outputs in `runs/` and `gen/runs/` (23 November 2026) were produced with an
+earlier kernel that printed a warning and continued on non-convergence and had no finiteness
+check. Exact replays of all worm runs with the current kernel (`revision_checks/`) reproduce the
+original acceptance counts. Re-running `jobs.txt` with the current samplers reproduces the
+original trajectories; for worm runs the printed estimates differ because bins now keep raw
+sums (see `README_REVISION.md`).
 
 ## License
 

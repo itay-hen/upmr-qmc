@@ -59,7 +59,12 @@ static double log_edd(const vector<double>& E, double beta) {
             if (k > 100000) { fprintf(stderr, "log_edd: no convergence (q=%d); aborting\n", L); exit(2); }
         }
     }
-    return L * std::log(beta) - ymax + std::log(S) + logscale;
+    const double res = L * std::log(beta) - ymax + std::log(S) + logscale;
+    // Abort on non-finite arithmetic (overflow, NaN, or S <= 0) instead of returning a wrong weight.
+    if (!(S > 0) || !std::isfinite(S) || !std::isfinite(logscale) || !std::isfinite(res)) {
+        fprintf(stderr, "log_edd: non-finite arithmetic (q=%d, S=%g, logscale=%g); aborting\n", L, S, logscale); exit(2);
+    }
+    return res;
 }
 
 // ---------------------------------------------------------------- model

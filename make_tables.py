@@ -1,10 +1,24 @@
-# Builds the LaTeX benchmark tables for QMCofEverything_v17 from runs/*.out and ed_ref.out
+# Builds the LaTeX benchmark tables for QMCofEverything_v19 from runs/*.out and ed_ref.out.
+# The worm-containing rows of the three-label table (C_worm, C_all) are taken from the raw-sum
+# replays in revision_checks/ (same seeds and parameters, identical acceptance counts): the
+# original runs/ outputs averaged bin means with equal weights, which misweights bins with
+# different numbers of closed visits. Runs without the worm have no open sector, so every
+# measurement sweep ends closed and the two estimators coincide.
 import re, ast, math
+OVERRIDE={'C_worm':'revision_checks/I_h3_worm_corrected.txt','C_all':'revision_checks/I_h3_all_corrected.txt'}
 def res(f):
-    t=open('runs/'+f+'.out').read(); m=re.search(r"RESULT (.*)",t).group(1).split()
+    t=open(OVERRIDE.get(f,'runs/'+f+'.out')).read(); m=re.search(r"RESULT (.*)",t).group(1).split()
     d={m[i]:(float(m[i+1]),float(m[i+2])) for i in range(0,len(m),3)}
     s=re.search(r"steps_per_sweep (\d+) closed_frac ([\d.]+)\s+ms_per_sweep ([\d.]+)\s+tau_int_E ([\d.]+)",t)
     d['meta']=dict(steps=int(s.group(1)),closed=float(s.group(2)),ms=float(s.group(3)),tau=float(s.group(4)))
+    rb=[[float(x) for x in l.split()[3:]] for l in t.splitlines() if l.startswith('RAW_BIN')]
+    if rb:
+        # full-precision ratio estimates and delete-one-bin jackknife from the raw sums
+        # (columns: sum w, E, szroot, szw, n, q, ...), avoiding double rounding of RESULT
+        B=len(rb); tot=[sum(r[i] for r in rb) for i in range(len(rb[0]))]
+        for j,k in enumerate(['E','szroot','szw','n','q'],start=1):
+            jk=[(tot[j]-r[j])/(tot[0]-r[0]) for r in rb]; mj=sum(jk)/B
+            d[k]=(tot[j]/tot[0], math.sqrt((B-1)/B*sum((x-mj)**2 for x in jk)))
     return d
 def cpu(n):
     # single-core CPU time per sweep from the short timing reruns (timing/), same parameters
@@ -24,6 +38,7 @@ L=[]
 L.append(r"""\begin{table*}[t]
 \caption{UPMR-QMC versus ED for a single spin--boson pair, Eq.~\eqref{eq:H_SB} with $\epsilon=\omega_0=1$, $g=0.6$, $n_{\max}=8$. QMC: $2\times10^7$ sweeps with local and nonlocal moves; $\langle\sigma^z\rangle$ from the weighted estimator~\eqref{eq:diag_estimator_avg}; errors (one standard deviation, jackknife over 100 bins) in the last digits.}
 \label{tab:sb_ed}
+\small
 \begin{tabular}{r|ll|ll|ll|ll}
 \hline\hline
 $\beta$ & $\langle\sigma^z\rangle_{\rm QMC}$ & $\langle\sigma^z\rangle_{\rm ED}$ & $\langle n\rangle_{\rm QMC}$ & $\langle n\rangle_{\rm ED}$ & $\langle H\rangle_{\rm QMC}$ & $\langle H\rangle_{\rm ED}$ & $\langle q\rangle_{\rm QMC}$ & $-\beta\langle H_{\rm off}\rangle_{\rm ED}$\\
@@ -39,6 +54,7 @@ L.append(r"""\hline\hline
 L.append(r"""\begin{table*}[t]
 \caption{UPMR-QMC versus ED for a single spin--boson pair at $\beta=5$, $\epsilon=\omega_0=1$, $n_{\max}=10$, as a function of $g$. The susceptibility $\chi_z=\partial\langle\sigma^z\rangle/\partial\epsilon$ is measured with the covariance estimator described in the text; ED values are from a finite difference. Values for $n_{\max}=40$ agree with the ED column except at $g=2$ (see text). QMC: $2\times10^7$ sweeps ($5\times10^6$ at $g=2$, $2\times10^6$ at $g=0$).}
 \label{tab:sb_g}
+\small
 \begin{tabular}{r|ll|ll|ll|ll}
 \hline\hline
 $g$ & $\langle\sigma^z\rangle_{\rm QMC}$ & $\langle\sigma^z\rangle_{\rm ED}$ & $\langle n\rangle_{\rm QMC}$ & $\langle n\rangle_{\rm ED}$ & $\langle q\rangle_{\rm QMC}$ & $-\beta\langle H_{\rm off}\rangle_{\rm ED}$ & $\chi_{z,\rm QMC}$ & $\chi_{z,\rm ED}$\\
@@ -53,8 +69,8 @@ L.append(r"""\hline\hline
 """)
 # Table C
 e=ED[('C',2)]
-L.append(r"""\begin{table}[t]
-\caption{Three-label benchmark, Eq.~\eqref{eq:H3} with $\epsilon=\omega_0=1$, $h=0.5$, $\kappa=0.3$, $g=0.6$, $\beta=2$, $n_{\max}=40$, for different update sets ($10^7$ sweeps each). ``Local'': basis-state, swap, and pair moves. ``All'': local, subcycle, re-rooting, reversal, segment exchange, and worm.}
+L.append(r"""\begin{table*}[t]
+\caption{Three-label benchmark, Eq.~\eqref{eq:H3} with $\epsilon=\omega_0=1$, $h=0.5$, $\kappa=0.3$, $g=0.6$, $\beta=2$, $n_{\max}=40$, for different update sets ($10^7$ sweeps each). Worm-containing rows are recomputed from raw numerator/denominator sums in replays with identical acceptance counts. ``Local'': basis-state, swap, and pair moves. ``All'': local, subcycle, re-rooting, reversal, segment exchange, and worm.}
 \label{tab:h3}
 \begin{tabular}{lllll}
 \hline\hline
@@ -66,7 +82,7 @@ for lab,f in [("local","C_base"),("local + subcycle","C_sub"),("local + worm","C
 L.append(f"ED & ${f5(e['sz'])}$ & ${f5(e['n'])}$ & ${f5(e['E'])}$ & ${f5(e['q'])}$ \\\\")
 L.append(r"""\hline\hline
 \end{tabular}
-\end{table}
+\end{table*}
 """)
 # Table D
 L.append(r"""\begin{table*}[t]

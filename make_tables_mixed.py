@@ -1,4 +1,4 @@
-# LaTeX tables for the fermion-spin-boson benchmark (QMCofEverything_v17) from gen/runs and gen/ed_mixed.out
+# LaTeX tables for the fermion-spin-boson benchmark (QMCofEverything_v19) from gen/runs and gen/ed_mixed.out
 import re, json, math, sys
 def res(f):
     t = open('gen/runs/' + f + '.out').read()
@@ -30,7 +30,7 @@ out = []; maxdev = []
 cols = [('O_b1', 1.0), ('O_b2', 2.0), ('O_b4', 4.0)]
 R = {f: res(f) for f, _ in cols}
 out.append(r"""\begin{table*}[t]
-\caption{Fermion--spin--boson benchmark, Eq.~\eqref{eq:H_mix}, open chain: QMC versus ED (dimension of the $N=4$ sector: 1890). $L=4$, $t=1$, $U=4$, $\omega_0=1$, $g=0.3$, $J_K=1$, $D=0.5$, $\gamma=0.3$, $S=1$, $n_{\max}=8$. All moves (basis shifts, swap, pair, subcycle replacement with automatically generated templates, re-rooting, reversal, segment exchange), $2\times10^6$ sweeps per $\beta$. $H_{\rm hop}$, $H_g$, $H_{K,\perp}=\tfrac{J_K}{2}(S^+s_0^-+S^-s_0^+)$, and $H_\gamma$ are the off-diagonal parts of $H$ (hopping, boson-assisted hopping, transverse Kondo, and impurity--boson terms), measured from vertex counts; $n_d=\sum_i n_{i\uparrow}n_{i\downarrow}$ is the total double occupancy; the remaining diagonal observables use the $\omega_k$-weighted estimator. Every sampled weight was nonnegative.}
+\caption{Fermion--spin--boson benchmark, Eq.~\eqref{eq:H_mix}, open chain: QMC versus ED (dimension of the $N=4$ sector: 1890). $L=4$, $t=1$, $U=4$, $\omega_0=1$, $g=0.3$, $J_K=1$, $D=0.5$, $\gamma=0.3$, $S=1$, $n_{\max}=8$. All moves (basis shifts, swap, pair, subcycle replacement with automatically generated templates, re-rooting, reversal, segment exchange), $2\times10^6$ sweeps per $\beta$ after $5\times10^4$ thermalization sweeps. $H_{\rm hop}$, $H_g$, $H_{K,\perp}=\tfrac{J_K}{2}(S^+s_0^-+S^-s_0^+)$, and $H_\gamma$ are the off-diagonal parts of $H$ (hopping, boson-assisted hopping, transverse Kondo, and impurity--boson terms), measured from vertex counts; $n_d=\sum_i n_{i\uparrow}n_{i\downarrow}$ is the total double occupancy; the remaining diagonal observables use the $\omega_k$-weighted estimator. Every sampled weight was nonnegative.}
 \label{tab:mix_open}
 \begin{tabular}{l|ll|ll|ll}
 \hline\hline
@@ -51,7 +51,7 @@ rcols = [('R0_b1', 0.0, 1.0, r'$0$', 1), ('Rh_b1', math.pi/2, 1.0, r'$\pi/2$', 1
          ('Rp_b1', math.pi, 1.0, r'$\pi$', 1), ('Rp_b2', math.pi, 2.0, r'$\pi$', 2), ('Rp_b4', math.pi, 4.0, r'$\pi$', 4)]
 RR = {c[0]: res(c[0]) for c in rcols}
 out.append(r"""\begin{table*}[t]
-\caption{Fermion--spin--boson benchmark on the ring (periodic boundary, flux $\phi$), same parameters as Table~\ref{tab:mix_open}. Weights now carry fermionic exchange signs ($\phi=0,\pi$) and complex phases ($\phi=\pi/2$); $\langle e^{i\theta}\rangle$ is the average phase of $w$ under $|w|$ sampling (its imaginary part vanishes within errors). $4\times10^6$ sweeps ($2\times10^6$ at $\beta=4$).}
+\caption{Fermion--spin--boson benchmark on the ring (periodic boundary, flux $\phi$), same parameters as Table~\ref{tab:mix_open}. Weights now carry fermionic exchange signs ($\phi=0,\pi$) and complex phases ($\phi=\pi/2$); $\langle e^{i\theta}\rangle$ is the average phase of $w$ under $|w|$ sampling (its imaginary part vanishes within errors). $4\times10^6$ sweeps ($2\times10^6$ at $\beta=4$), each after $5\times10^4$ thermalization sweeps.}
 \label{tab:mix_ring}
 \small
 \begin{tabular}{ll|l|ll|ll|ll|ll}

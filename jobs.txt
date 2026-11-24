@@ -14,3 +14,9 @@ C_sub --model h3 --nmax 40 --g 0.6 --h 0.5 --kap 0.3 --beta 2 --sub 1 --sweeps 1
 C_worm --model h3 --nmax 40 --g 0.6 --h 0.5 --kap 0.3 --beta 2 --worm 1 --sweeps 1e7 --therm 1e5 --seed 33
 C_all --model h3 --nmax 40 --g 0.6 --h 0.5 --kap 0.3 --beta 2 --sub 1 --nonlocal 1 --worm 1 --sweeps 1e7 --therm 1e5 --seed 34
 W_sb --model sb --nmax 8 --g 0.6 --beta 5 --worm 1 --sweeps 1e7 --therm 1e5 --seed 41
+W2_sb_42 --model sb --nmax 8 --g 0.6 --beta 5 --worm 1 --sweeps 2e7 --therm 1e5 --bins 200 --seed 42
+W2_sb_43 --model sb --nmax 8 --g 0.6 --beta 5 --worm 1 --sweeps 2e7 --therm 1e5 --bins 200 --seed 43
+W2_sb_44 --model sb --nmax 8 --g 0.6 --beta 5 --worm 1 --sweeps 2e7 --therm 1e5 --bins 200 --seed 44
+W2_sb_b1 --model sb --nmax 8 --g 0.6 --beta 1 --worm 1 --sweeps 2e7 --therm 1e5 --bins 200 --seed 45
+W_sb_rawsum --model sb --nmax 8 --g 0.6 --beta 5 --worm 1 --sweeps 1e7 --therm 1e5 --seed 41 --rawbins 1
+W_sb_b1_rawsum --model sb --nmax 8 --g 0.6 --beta 1 --worm 1 --sweeps 1e7 --therm 1e5 --seed 45 --rawbins 1
