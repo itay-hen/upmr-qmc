@@ -78,7 +78,7 @@ L_.append(r"""\begin{table*}[t]
 \hline\hline
 $L$ & $\beta$ & $\dim$ & $\langle H\rangle_{\rm QMC}$ & ref. & $\langle\bar\psi\psi\rangle_{\rm QMC}$ & ref. & $\langle E^2\rangle_{\rm QMC}$ & ref. & $q_{\max}$ & ms\\
 \hline""")
-for L, b in [(8, 2), (12, 2), (16, 2), (20, 2), (24, 2), (32, 2), (48, 2), (64, 2), (16, 4), (24, 4)]:
+for L, b in [(8, 2), (12, 2), (16, 2), (20, 2), (24, 2), (32, 2), (48, 2), (64, 2), (16, 4), (24, 4), (64, 4)]:
     r = res(f'qlm/runs/Q_L{L}_b{b}.out'); D = dimq(L)
     r2 = res(f'qlm/runs/Q_L{L}_b{b}_s2.out')          # independent rerun (other seed): combine by inverse variance
     if r and r2:
