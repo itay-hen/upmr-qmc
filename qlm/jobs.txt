@@ -1,0 +1,12 @@
+Q_L8_b2 --spec qlm/L8.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 2e6 --therm 1e5 --seed 82 --targeted 0
+Q_L12_b2 --spec qlm/L12.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 2e6 --therm 1e5 --seed 122 --targeted 0
+Q_L16_b2 --spec qlm/L16.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 2e6 --therm 1e5 --seed 162 --targeted 0
+Q_L20_b2 --spec qlm/L20.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 2e6 --therm 1e5 --seed 202 --targeted 0
+Q_L24_b2 --spec qlm/L24.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 2e6 --therm 1e5 --seed 242 --targeted 0
+Q_L32_b2 --spec qlm/L32.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 1e6 --therm 1e5 --seed 322 --targeted 0
+Q_L48_b2 --spec qlm/L48.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 1e6 --therm 1e5 --seed 482 --targeted 0
+Q_L64_b2 --spec qlm/L64.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 1e6 --therm 1e5 --seed 642 --targeted 0
+Q_L16_b4 --spec qlm/L16.spec --beta 4 --sub 1 --nonlocal 1 --sweeps 1e6 --therm 1e5 --seed 164 --targeted 0
+Q_L24_b4 --spec qlm/L24.spec --beta 4 --sub 1 --nonlocal 1 --sweeps 1e6 --therm 1e5 --seed 244 --targeted 0
+Q_L64_b4 --spec qlm/L64.spec --beta 4 --sub 1 --nonlocal 1 --sweeps 1e6 --therm 1e5 --seed 644 --targeted 0
+Q_L16_b4_s2 --spec qlm/L16.spec --beta 4 --sub 1 --nonlocal 1 --sweeps 2e6 --therm 1e5 --seed 999 --targeted 1

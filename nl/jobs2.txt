@@ -1,0 +1,4 @@
+Q32_revT --spec qlm/L32.spec --beta 4 --sub 1 --reversal 1 --sweeps 2e5 --therm 5e4 --seed 77 --targeted 1
+Q32_allT --spec qlm/L32.spec --beta 4 --sub 1 --nonlocal 1 --sweeps 2e5 --therm 5e4 --seed 77 --targeted 1
+LR12_revT --spec lr/L12.spec --beta 2 --sub 1 --reversal 1 --sweeps 2e5 --therm 5e4 --seed 77 --targeted 1
+LR12_allT --spec lr/L12.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 2e5 --therm 5e4 --seed 77 --targeted 1

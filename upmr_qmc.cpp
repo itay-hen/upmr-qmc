@@ -35,37 +35,7 @@ using std::vector;
 
 // ---------------------------------------------------------------- kernel
 // returns log|f[x_0..x_L]| for f(x)=exp(-beta x); sign is (-1)^L.
-static double log_edd(const vector<double>& E, double beta) {
-    const int L = (int)E.size() - 1;
-    double ymax = -1e300;
-    for (double e : E) ymax = std::max(ymax, beta * e);
-    if (L == 0) return -beta * E[0];
-    vector<double> a(L + 1), v(L + 1, 0.0), t(L + 1);
-    double amax = 0;
-    for (int i = 0; i <= L; i++) { a[i] = ymax - beta * E[i]; amax = std::max(amax, a[i]); }
-    const double N = amax + 1.0;
-    v[L] = 1.0;                       // term_0 = e_L
-    double logscale = 0.0, S = 0.0;   // true term = v * exp(logscale)
-    for (int k = 1;; k++) {
-        // t = Z' v / k  (upper bidiagonal, diag a, superdiag 1)
-        double mx = 0;
-        for (int i = 0; i < L; i++) { t[i] = (a[i] * v[i] + v[i + 1]) / k; mx = std::max(mx, t[i]); }
-        t[L] = a[L] * v[L] / k; mx = std::max(mx, t[L]);
-        v.swap(t);
-        if (mx > 1e150 || (k < L && mx > 0 && mx < 1e-150)) { for (double& x : v) x /= mx; logscale += std::log(mx); S /= mx; }
-        if (k >= L) {
-            S += v[0];
-            if (k > 2 * N && mx < 1e-18 * S) break;
-            if (k > 100000) { fprintf(stderr, "log_edd: no convergence (q=%d); aborting\n", L); exit(2); }
-        }
-    }
-    const double res = L * std::log(beta) - ymax + std::log(S) + logscale;
-    // Abort on non-finite arithmetic (overflow, NaN, or S <= 0) instead of returning a wrong weight.
-    if (!(S > 0) || !std::isfinite(S) || !std::isfinite(logscale) || !std::isfinite(res)) {
-        fprintf(stderr, "log_edd: non-finite arithmetic (q=%d, S=%g, logscale=%g); aborting\n", L, S, logscale); exit(2);
-    }
-    return res;
-}
+#include "edd.h"
 
 // ---------------------------------------------------------------- model
 struct Label { vector<std::pair<int,int>> disp; int inv; int kind; int site; int dir; };

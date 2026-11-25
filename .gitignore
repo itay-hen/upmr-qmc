@@ -3,3 +3,5 @@ upmr_gen
 *.o
 __pycache__/
 .DS_Store
+upmr_gen_*
+nl/upmr_gen_*

@@ -3,10 +3,10 @@ CXXFLAGS ?= -O3 -std=c++17
 
 all: upmr_gen upmr_qmc
 
-upmr_gen: upmr_gen.cpp
+upmr_gen: upmr_gen.cpp edd.h
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
-upmr_qmc: upmr_qmc.cpp
+upmr_qmc: upmr_qmc.cpp edd.h
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
 # quick smoke test: spin-boson pair at beta=5 against ED (about a minute)

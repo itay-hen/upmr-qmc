@@ -34,36 +34,9 @@ using std::vector; using std::string;
 using cplx = std::complex<double>;
 
 // ---------------------------------------------------------------- kernel (as upmr_qmc.cpp)
-static double log_edd(const vector<double>& E, double beta) {
-    const int L = (int)E.size() - 1;
-    double ymax = -1e300;
-    for (double e : E) ymax = std::max(ymax, beta * e);
-    if (L == 0) return -beta * E[0];
-    vector<double> a(L + 1), v(L + 1, 0.0), t(L + 1);
-    double amax = 0;
-    for (int i = 0; i <= L; i++) { a[i] = ymax - beta * E[i]; amax = std::max(amax, a[i]); }
-    const double N = amax + 1.0;
-    v[L] = 1.0;
-    double logscale = 0.0, S = 0.0;
-    for (int k = 1;; k++) {
-        double mx = 0;
-        for (int i = 0; i < L; i++) { t[i] = (a[i] * v[i] + v[i + 1]) / k; mx = std::max(mx, t[i]); }
-        t[L] = a[L] * v[L] / k; mx = std::max(mx, t[L]);
-        v.swap(t);
-        if (mx > 1e150 || (k < L && mx > 0 && mx < 1e-150)) { for (double& x : v) x /= mx; logscale += std::log(mx); S /= mx; }
-        if (k >= L) {
-            S += v[0];
-            if (k > 2 * N && mx < 1e-18 * S) break;
-            if (k > 100000) { fprintf(stderr, "log_edd: no convergence (q=%d); aborting\n", L); exit(2); }
-        }
-    }
-    const double res = L * std::log(beta) - ymax + std::log(S) + logscale;
-    // Abort on non-finite arithmetic (overflow, NaN, or S <= 0) instead of returning a wrong weight.
-    if (!(S > 0) || !std::isfinite(S) || !std::isfinite(logscale) || !std::isfinite(res)) {
-        fprintf(stderr, "log_edd: non-finite arithmetic (q=%d, S=%g, logscale=%g); aborting\n", L, S, logscale); exit(2);
-    }
-    return res;
-}
+#include "edd.h"
+#include <unordered_map>
+static const int MAXC = 512;   // max number of components
 
 // ---------------------------------------------------------------- generic model
 enum { CD, C, NF, SP, SM, SZ, BD, B, NB };
@@ -76,6 +49,8 @@ struct Model {
     vector<Comp> comps; int nc = 0; bool canonical = false; vector<int> root0;
     vector<string> tags; vector<Str> diag; vector<Label> labels;
     vector<string> obs_names; vector<vector<Str>> obs;
+    vector<string> cons_names; vector<vector<Str>> cons;   // conserved diagonal quantities (root moves keep them)
+    mutable std::unordered_map<string, double> Ecache;     // diagonal energy cache
     vector<int> offtag;   // per tag: 1 if it owns labels
 
     int tag_id(const string& s) {
@@ -116,11 +91,15 @@ struct Model {
                 comps.push_back(K);
             } else if (kw == "canonical") { int x; is >> x; canonical = x; }
             else if (kw == "root") { int x; while (is >> x) root0.push_back(x); }
-            else if (kw == "term" || kw == "obs") {
+            else if (kw == "term" || kw == "obs" || kw == "conserve") {
                 string tg; double re, im = 0; int k; is >> tg >> re; if (kw == "term") is >> im; is >> k;
                 Str s; s.coef = cplx(re, im);
                 for (int i = 0; i < k; i++) { string o; int c; is >> o >> c; s.ops.push_back({opcode(o), c}); }
-                if (kw == "obs") {
+                if (kw == "conserve") {
+                    size_t j = 0; for (; j < cons_names.size(); j++) if (cons_names[j] == tg) break;
+                    if (j == cons_names.size()) { cons_names.push_back(tg); cons.emplace_back(); }
+                    cons[j].push_back(s);
+                } else if (kw == "obs") {
                     size_t j = 0; for (; j < obs_names.size(); j++) if (obs_names[j] == tg) break;
                     if (j == obs_names.size()) { obs_names.push_back(tg); obs.emplace_back(); }
                     obs[j].push_back(s);
@@ -128,6 +107,7 @@ struct Model {
             }
         }
         nc = comps.size();
+        if (nc > MAXC) { fprintf(stderr, "too many components (%d > %d)\n", nc, MAXC); exit(1); }
         for (auto& s : off) {
             auto d = disp_of(s);
             if (d.empty()) { diag.push_back(s); continue; }
@@ -168,17 +148,32 @@ struct Model {
         return a;
     }
     double E(const int* z) const {
-        int tmp[64]; double e = 0;
+        string key(nc, '\0'); for (int c = 0; c < nc; c++) key[c] = (char)z[c];
+        auto it = Ecache.find(key); if (it != Ecache.end()) return it->second;
+        int tmp[MAXC]; double e = 0;
         for (auto& s : diag) e += act(s, z, tmp).real();
+        if (Ecache.size() > 500000) Ecache.clear();   // bounded memory (~60 MB)
+        Ecache.emplace(std::move(key), e);
         return e;
     }
+    double consval(int o, const int* z) const {
+        int tmp[MAXC]; double e = 0;
+        for (auto& s : cons[o]) e += act(s, z, tmp).real();
+        return e;
+    }
+    // root moves must keep every conserved quantity (and, if canonical, the fermion number)
+    bool same_sector(const int* z) const {
+        if (canonical && nferm(z) != nferm(&root0[0])) return false;
+        for (size_t o = 0; o < cons.size(); o++) if (std::fabs(consval(o, z) - consval(o, &root0[0])) > 1e-9) return false;
+        return true;
+    }
     double obsval(int o, const int* z) const {
-        int tmp[64]; double e = 0;
+        int tmp[MAXC]; double e = 0;
         for (auto& s : obs[o]) e += act(s, z, tmp).real();
         return e;
     }
     cplx amp(int t, const int* z) const {
-        int tmp[64]; cplx a = 0;
+        int tmp[MAXC]; cplx a = 0;
         for (int i : labels[t].strs) a += act(strs[i], z, tmp);
         return a;
     }
@@ -214,6 +209,7 @@ struct Sampler {
     Model& m; double beta; std::mt19937_64 rng; int nc;
     vector<int> root, word; double logw = 0; cplx ph = 1; vector<double> En; vector<int> st;
     bool use_sub = false, use_nonlocal = false, use_worm = false; double mu = 1.0;
+    bool use_reroot = false, use_rev = false, use_exch = false;   // individual nonlocal moves
     vector<vector<int>> templ; vector<int> templ_inv;
     std::map<string, std::pair<long,long>> stats; long weight_check_fail = 0;
 
@@ -254,13 +250,13 @@ struct Sampler {
     void basis_comp() {
         vector<int> r2 = root; int c = Ri(nc); int d = U() < 0.5 ? 1 : -1;
         r2[c] = m.norm(c, r2[c] + d);
-        if (!m.in_domain(&r2[0])) { stats["basis"].first++; return; }
+        if (!m.in_domain(&r2[0]) || !m.same_sector(&r2[0])) { stats["basis"].first++; return; }
         metro(r2, word, 0, "basis");
     }
     void basis_label() {                 // shift every state of the walk by a label displacement
         vector<int> r2 = root; m.apply(Ri(m.labels.size()), &r2[0]);
         // a Z_2 displacement does not fix the direction of a hop: stay in the fermion-number sector
-        if (!m.in_domain(&r2[0]) || (m.canonical && m.nferm(&r2[0]) != m.nferm(&m.root0[0]))) { stats["basis_lab"].first++; return; }
+        if (!m.in_domain(&r2[0]) || !m.same_sector(&r2[0])) { stats["basis_lab"].first++; return; }
         metro(r2, word, 0, "basis_lab");
     }
     void swap_move() {
@@ -321,10 +317,23 @@ struct Sampler {
         metro(r2, w2, 0, "reroot");
     }
     bool same_state(int a, int b) const { for (int c = 0; c < nc; c++) if (st[(size_t)a*nc+c] != st[(size_t)b*nc+c]) return false; return true; }
+    // Inner-loop reversal with a targeted proposal: choose a position a uniformly in 0..q, then b
+    // uniformly among the other positions whose state equals z_a. The pair {a,b} is proposed with
+    // probability 2/((q+1)(n-1)), n = multiplicity of z_a; reversal preserves the multiset of visited
+    // states and the states at a and b, so the reverse proposal has the same probability.
+    bool targeted_reversal = true;
     void reversal_move() {
         int q = word.size(); if (q < 2) return;
-        int a = Ri(q + 1), b = Ri(q + 1); if (a == b) return; if (a > b) std::swap(a, b);
+        int a = Ri(q + 1), b;
+        if (targeted_reversal) {
+            vector<int> P;
+            for (int k = 0; k <= q; k++) if (k != a && same_state(a, k)) P.push_back(k);
+            if (P.empty()) { stats["reversal"].first++; return; }
+            b = P[Ri(P.size())];
+        } else { b = Ri(q + 1); if (a == b) return; }
+        if (a > b) std::swap(a, b);
         if (!same_state(a, b)) { stats["reversal"].first++; return; }
+        if (a == 0 && b == q && q >= 2) { /* whole word: allowed */ }
         vector<int> w2 = word; for (int k = 0; k < b - a; k++) w2[a + k] = m.labels[word[b - 1 - k]].inv;
         metro(root, w2, 0, "reversal", true);
     }
@@ -362,9 +371,11 @@ struct Sampler {
     }
     void step() {
         vector<int> menu = {8, 1, 2};
-        if (!m.canonical) menu.push_back(0);
+        if (!m.canonical && m.cons.empty()) menu.push_back(0);   // single-component moves break most constraints
         if (use_sub) menu.push_back(3);
-        if (use_nonlocal) { menu.push_back(4); menu.push_back(5); menu.push_back(6); }
+        if (use_reroot) menu.push_back(4);
+        if (use_rev) menu.push_back(5);
+        if (use_exch) menu.push_back(6);
         if (use_worm) { menu.push_back(7); menu.push_back(7); }
         int mv = menu[Ri(menu.size())];
         if (!is_closed() && mv != 7) return;
@@ -414,6 +425,11 @@ int main(int argc, char** argv) {
     unsigned long seed = (unsigned long)argd(argc, argv, "--seed", 1);
     Sampler S(m, beta, seed);
     S.use_sub = argd(argc, argv, "--sub", 0) > 0; S.use_nonlocal = argd(argc, argv, "--nonlocal", 0) > 0;
+    // --nonlocal 1 enables all three; --reroot/--reversal/--exchange override individually
+    S.use_reroot = argd(argc, argv, "--reroot", S.use_nonlocal) > 0;
+    S.use_rev = argd(argc, argv, "--reversal", S.use_nonlocal) > 0;
+    S.use_exch = argd(argc, argv, "--exchange", S.use_nonlocal) > 0;
+    S.targeted_reversal = argd(argc, argv, "--targeted", 1) > 0;
     S.use_worm = argd(argc, argv, "--worm", 0) > 0; S.mu = argd(argc, argv, "--mu", 1.0);
     if (S.use_sub) S.make_templates((int)argd(argc, argv, "--tmax", 4));
     long bad = m.selftest(S.rng, 2000);
@@ -475,7 +491,7 @@ int main(int argc, char** argv) {
     };
     auto sre = stat([](const vector<double>& x) { return x[0]; });
     auto sim = stat([](const vector<double>& x) { return x[1]; });
-    printf("beta=%g sub=%d nonlocal=%d worm=%d mu=%g seed=%lu\n", beta, (int)S.use_sub, (int)S.use_nonlocal, (int)S.use_worm, S.mu, seed);
+    printf("beta=%g sub=%d reroot=%d reversal=%d exchange=%d worm=%d mu=%g seed=%lu\n", beta, (int)S.use_sub, (int)S.use_reroot, (int)S.use_rev, (int)S.use_exch, (int)S.use_worm, S.mu, seed);
     printf("PHASE re %.6f %.6f im %.6f %.6f\n", sre.first, sre.second, sim.first, sim.second);
     printf("RESULT");
     auto pr = [&](const string& nm, int i, double fac) {

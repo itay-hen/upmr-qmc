@@ -1,0 +1,10 @@
+Q32_base --spec qlm/L32.spec --beta 4 --sub 1  --sweeps 2e5 --therm 5e4 --seed 77 --targeted 0
+Q32_reroot --spec qlm/L32.spec --beta 4 --sub 1 --reroot 1 --sweeps 2e5 --therm 5e4 --seed 77 --targeted 0
+Q32_rev --spec qlm/L32.spec --beta 4 --sub 1 --reversal 1 --sweeps 2e5 --therm 5e4 --seed 77 --targeted 0
+Q32_exch --spec qlm/L32.spec --beta 4 --sub 1 --exchange 1 --sweeps 2e5 --therm 5e4 --seed 77 --targeted 0
+Q32_all --spec qlm/L32.spec --beta 4 --sub 1 --nonlocal 1 --sweeps 2e5 --therm 5e4 --seed 77 --targeted 0
+LR12_base --spec lr/L12.spec --beta 2 --sub 1  --sweeps 2e5 --therm 5e4 --seed 77 --targeted 0
+LR12_reroot --spec lr/L12.spec --beta 2 --sub 1 --reroot 1 --sweeps 2e5 --therm 5e4 --seed 77 --targeted 0
+LR12_rev --spec lr/L12.spec --beta 2 --sub 1 --reversal 1 --sweeps 2e5 --therm 5e4 --seed 77 --targeted 0
+LR12_exch --spec lr/L12.spec --beta 2 --sub 1 --exchange 1 --sweeps 2e5 --therm 5e4 --seed 77 --targeted 0
+LR12_all --spec lr/L12.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 2e5 --therm 5e4 --seed 77 --targeted 0

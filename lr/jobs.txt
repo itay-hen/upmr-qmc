@@ -1,0 +1,5 @@
+LR_L4 --spec lr/L4.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 2e6 --therm 1e5 --seed 401 --targeted 0
+LR_L6 --spec lr/L6.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 2e6 --therm 1e5 --seed 601 --targeted 0
+LR_L8 --spec lr/L8.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 2e6 --therm 1e5 --seed 801 --targeted 0
+LR_L12 --spec lr/L12.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 2e6 --therm 1e5 --seed 1201 --targeted 0
+LR_L16 --spec lr/L16.spec --beta 2 --sub 1 --nonlocal 1 --sweeps 2e6 --therm 1e5 --seed 1601 --targeted 0
