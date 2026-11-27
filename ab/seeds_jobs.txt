@@ -1,0 +1,72 @@
+QS_rev_1 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --reversal 1 --targeted 1 --sweeps 5e5 --therm 1e5 --seed 1601
+QS_rev_2 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --reversal 1 --targeted 1 --sweeps 5e5 --therm 1e5 --seed 1602
+QS_rev_3 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --reversal 1 --targeted 1 --sweeps 5e5 --therm 1e5 --seed 1603
+QS_rev_4 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --reversal 1 --targeted 1 --sweeps 5e5 --therm 1e5 --seed 1604
+QS_rev_5 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --reversal 1 --targeted 1 --sweeps 5e5 --therm 1e5 --seed 1605
+QS_rev_6 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --reversal 1 --targeted 1 --sweeps 5e5 --therm 1e5 --seed 1606
+QS_rev_7 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --reversal 1 --targeted 1 --sweeps 5e5 --therm 1e5 --seed 1607
+QS_rev_8 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --reversal 1 --targeted 1 --sweeps 5e5 --therm 1e5 --seed 1608
+QS_exch_1 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --exchange 1 --sweeps 5e5 --therm 1e5 --seed 1601
+QS_exch_2 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --exchange 1 --sweeps 5e5 --therm 1e5 --seed 1602
+QS_exch_3 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --exchange 1 --sweeps 5e5 --therm 1e5 --seed 1603
+QS_exch_4 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --exchange 1 --sweeps 5e5 --therm 1e5 --seed 1604
+QS_exch_5 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --exchange 1 --sweeps 5e5 --therm 1e5 --seed 1605
+QS_exch_6 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --exchange 1 --sweeps 5e5 --therm 1e5 --seed 1606
+QS_exch_7 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --exchange 1 --sweeps 5e5 --therm 1e5 --seed 1607
+QS_exch_8 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --exchange 1 --sweeps 5e5 --therm 1e5 --seed 1608
+QS_all_1 --spec qlm/L16.spec --beta 4 --sub 1 --nonlocal 1 --targeted 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1601
+QS_all_2 --spec qlm/L16.spec --beta 4 --sub 1 --nonlocal 1 --targeted 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1602
+QS_all_3 --spec qlm/L16.spec --beta 4 --sub 1 --nonlocal 1 --targeted 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1603
+QS_all_4 --spec qlm/L16.spec --beta 4 --sub 1 --nonlocal 1 --targeted 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1604
+QS_all_5 --spec qlm/L16.spec --beta 4 --sub 1 --nonlocal 1 --targeted 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1605
+QS_all_6 --spec qlm/L16.spec --beta 4 --sub 1 --nonlocal 1 --targeted 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1606
+QS_all_7 --spec qlm/L16.spec --beta 4 --sub 1 --nonlocal 1 --targeted 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1607
+QS_all_8 --spec qlm/L16.spec --beta 4 --sub 1 --nonlocal 1 --targeted 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1608
+LS_base_1 --spec lr/L8.spec --beta 2 --sub 1  --sweeps 5e5 --therm 1e5 --seed 801
+LS_base_2 --spec lr/L8.spec --beta 2 --sub 1  --sweeps 5e5 --therm 1e5 --seed 802
+LS_base_3 --spec lr/L8.spec --beta 2 --sub 1  --sweeps 5e5 --therm 1e5 --seed 803
+LS_base_4 --spec lr/L8.spec --beta 2 --sub 1  --sweeps 5e5 --therm 1e5 --seed 804
+LS_base_5 --spec lr/L8.spec --beta 2 --sub 1  --sweeps 5e5 --therm 1e5 --seed 805
+LS_base_6 --spec lr/L8.spec --beta 2 --sub 1  --sweeps 5e5 --therm 1e5 --seed 806
+LS_base_7 --spec lr/L8.spec --beta 2 --sub 1  --sweeps 5e5 --therm 1e5 --seed 807
+LS_base_8 --spec lr/L8.spec --beta 2 --sub 1  --sweeps 5e5 --therm 1e5 --seed 808
+LS_rr_1 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --sweeps 5e5 --therm 1e5 --seed 801
+LS_rr_2 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --sweeps 5e5 --therm 1e5 --seed 802
+LS_rr_3 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --sweeps 5e5 --therm 1e5 --seed 803
+LS_rr_4 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --sweeps 5e5 --therm 1e5 --seed 804
+LS_rr_5 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --sweeps 5e5 --therm 1e5 --seed 805
+LS_rr_6 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --sweeps 5e5 --therm 1e5 --seed 806
+LS_rr_7 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --sweeps 5e5 --therm 1e5 --seed 807
+LS_rr_8 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --sweeps 5e5 --therm 1e5 --seed 808
+LS_rev_1 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --reversal 1 --targeted 1 --sweeps 5e5 --therm 1e5 --seed 801
+LS_rev_2 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --reversal 1 --targeted 1 --sweeps 5e5 --therm 1e5 --seed 802
+LS_rev_3 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --reversal 1 --targeted 1 --sweeps 5e5 --therm 1e5 --seed 803
+LS_rev_4 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --reversal 1 --targeted 1 --sweeps 5e5 --therm 1e5 --seed 804
+LS_rev_5 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --reversal 1 --targeted 1 --sweeps 5e5 --therm 1e5 --seed 805
+LS_rev_6 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --reversal 1 --targeted 1 --sweeps 5e5 --therm 1e5 --seed 806
+LS_rev_7 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --reversal 1 --targeted 1 --sweeps 5e5 --therm 1e5 --seed 807
+LS_rev_8 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --reversal 1 --targeted 1 --sweeps 5e5 --therm 1e5 --seed 808
+LS_exch_1 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --exchange 1 --sweeps 5e5 --therm 1e5 --seed 801
+LS_exch_2 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --exchange 1 --sweeps 5e5 --therm 1e5 --seed 802
+LS_exch_3 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --exchange 1 --sweeps 5e5 --therm 1e5 --seed 803
+LS_exch_4 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --exchange 1 --sweeps 5e5 --therm 1e5 --seed 804
+LS_exch_5 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --exchange 1 --sweeps 5e5 --therm 1e5 --seed 805
+LS_exch_6 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --exchange 1 --sweeps 5e5 --therm 1e5 --seed 806
+LS_exch_7 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --exchange 1 --sweeps 5e5 --therm 1e5 --seed 807
+LS_exch_8 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --exchange 1 --sweeps 5e5 --therm 1e5 --seed 808
+LS_rrsep_1 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 801
+LS_rrsep_2 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 802
+LS_rrsep_3 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 803
+LS_rrsep_4 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 804
+LS_rrsep_5 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 805
+LS_rrsep_6 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 806
+LS_rrsep_7 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 807
+LS_rrsep_8 --spec lr/L8.spec --beta 2 --sub 1 --reroot 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 808
+LS_all_1 --spec lr/L8.spec --beta 2 --sub 1 --nonlocal 1 --targeted 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 801
+LS_all_2 --spec lr/L8.spec --beta 2 --sub 1 --nonlocal 1 --targeted 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 802
+LS_all_3 --spec lr/L8.spec --beta 2 --sub 1 --nonlocal 1 --targeted 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 803
+LS_all_4 --spec lr/L8.spec --beta 2 --sub 1 --nonlocal 1 --targeted 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 804
+LS_all_5 --spec lr/L8.spec --beta 2 --sub 1 --nonlocal 1 --targeted 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 805
+LS_all_6 --spec lr/L8.spec --beta 2 --sub 1 --nonlocal 1 --targeted 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 806
+LS_all_7 --spec lr/L8.spec --beta 2 --sub 1 --nonlocal 1 --targeted 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 807
+LS_all_8 --spec lr/L8.spec --beta 2 --sub 1 --nonlocal 1 --targeted 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 808

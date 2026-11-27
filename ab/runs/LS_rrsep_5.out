@@ -1,0 +1,13 @@
+spec=lr/L8.spec comps=18 labels=48 diag_strings=141 templates=394 hermitian_pairing_failures=0
+beta=2 sub=1 reroot=1 reversal=0 exchange=0 worm=0 mu=1 seppair=1 rotate=0 seed=805
+PHASE re 1.000000 0.000000 im 0.000000 0.000000
+RESULT E -8.642174 0.054245 q 32.583800 0.179182 H_kin -8.405810 0.036509 H_ssh -6.611740 0.058024 H_Kflip -0.317054 0.010275 H_Sx -0.957296 0.015445 docc_root 1.294560 0.005338 docc 1.293958 0.005310 nph_root 3.517752 0.027297 nph 3.517862 0.027207 Sz2_root 0.458140 0.001572 Sz2 0.457245 0.001475 SzSz0_root -0.093356 0.002092 SzSz0 -0.093409 0.001970 Nf_root 8.000000 0.000000 Nf 8.000000 0.000000 Scdw_root 0.594051 0.003297 Scdw 0.593170 0.003186
+steps_per_sweep 50 closed_frac 1.0000 ms_per_sweep 0.6696 tau_int_E 103.51 weight_check_fail 0 cpu_ms_per_sweep 0.4256 q_max 66
+  acc basis_lab 336751/5004426 = 0.067
+  acc pair_del  141344/2504194 = 0.056
+  acc pair_ins  141346/2501837 = 0.056
+  acc reroot    4529784/5005036 = 0.905
+  acc sep_del   72426/2502387 = 0.029
+  acc sep_ins   72387/2500001 = 0.029
+  acc subcycle  86535/5008174 = 0.017
+  acc swap      4128330/4751175 = 0.869

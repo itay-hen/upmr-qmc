@@ -1,0 +1,17 @@
+\begin{table}[t]
+\caption{Update sets compared on the quantum link model ($L=16$, $\beta=4$, Table~\ref{tab:qlm}) and the long-range chain ($L=8$, Table~\ref{tab:lr}), from 8 independent runs of $5\times10^5$ sweeps per set. ``Eff.'' is the efficiency $1/(\sigma^2t_{\rm CPU})$ relative to the set with re-rooting, with $\sigma$ the larger of the mean jackknife error and the scatter between runs; with 8 runs the ratios are uncertain by up to a factor of about $1.5$. $R$ is the scatter between runs divided by the jackknife error of the $\omega_k$-weighted estimator of $O$, the chiral condensate (QLM) and $S_{\rm CDW}$ (LR); $R\gg1$ signals that the jackknife underestimates the error. Every set includes basis shifts, swaps, pair moves, and subcycle replacement; reversal uses the targeted proposal.}
+\label{tab:updates}
+\begin{tabular}{l|ccc|ccc}
+\hline\hline
+ & \multicolumn{3}{c|}{QLM} & \multicolumn{3}{c}{LR}\\
+update set & $H$ & $O$ & $R$ & $H$ & $O$ & $R$\\
+\hline
+no re-rooting & 2.3 & 0.02 & 3.1 & 1.0 & 0.6 & 1.2 \\
+re-rooting (reference) & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
+re-rooting + reversal & 1.2 & 0.8 & 0.7 & 1.0 & 0.9 & 0.9 \\
+re-rooting + exchange & 1.3 & 0.9 & 0.7 & 1.0 & 1.0 & 0.9 \\
+re-rooting + separated pairs & 2.2 & 1.6 & 0.4 & 1.4 & 1.2 & 0.8 \\
+all four & 1.5 & 1.1 & 0.7 & 1.3 & 0.6 & 1.4 \\
+\hline\hline
+\end{tabular}
+\end{table}
