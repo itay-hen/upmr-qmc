@@ -1,0 +1,7 @@
+V_Q8_sep --spec qlm/L8.spec --beta 2 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 11
+V_Q8_rot --spec qlm/L8.spec --beta 2 --sub 1 --worm 1 --rotate 1 --sweeps 1e6 --therm 1e5 --seed 12
+V_Q8_seponly --spec qlm/L8.spec --beta 2 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 13
+V_open_sep --spec gen/open.spec --beta 2 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 21
+V_open_rot --spec gen/open.spec --beta 2 --sub 1 --worm 1 --rotate 1 --sweeps 1e6 --therm 1e5 --seed 22
+V_pi_all --spec gen/ring_pi.spec --beta 2 --sub 1 --seppair 1 --worm 1 --rotate 1 --sweeps 1e6 --therm 1e5 --seed 23
+V_h3_wormrot --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 31

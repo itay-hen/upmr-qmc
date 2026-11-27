@@ -1,0 +1,48 @@
+S_worm_1 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 1e6 --therm 1e5 --seed 501
+S_worm_2 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 1e6 --therm 1e5 --seed 502
+S_worm_3 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 1e6 --therm 1e5 --seed 503
+S_worm_4 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 1e6 --therm 1e5 --seed 504
+S_worm_5 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 1e6 --therm 1e5 --seed 505
+S_worm_6 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 1e6 --therm 1e5 --seed 506
+S_worm_7 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 1e6 --therm 1e5 --seed 507
+S_worm_8 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 1e6 --therm 1e5 --seed 508
+S_worm_9 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 1e6 --therm 1e5 --seed 509
+S_worm_10 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 1e6 --therm 1e5 --seed 510
+S_worm_11 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 1e6 --therm 1e5 --seed 511
+S_worm_12 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 1e6 --therm 1e5 --seed 512
+S_sep_1 --spec gen/h3.spec --beta 2 --worm 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 501
+S_sep_2 --spec gen/h3.spec --beta 2 --worm 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 502
+S_sep_3 --spec gen/h3.spec --beta 2 --worm 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 503
+S_sep_4 --spec gen/h3.spec --beta 2 --worm 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 504
+S_sep_5 --spec gen/h3.spec --beta 2 --worm 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 505
+S_sep_6 --spec gen/h3.spec --beta 2 --worm 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 506
+S_sep_7 --spec gen/h3.spec --beta 2 --worm 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 507
+S_sep_8 --spec gen/h3.spec --beta 2 --worm 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 508
+S_sep_9 --spec gen/h3.spec --beta 2 --worm 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 509
+S_sep_10 --spec gen/h3.spec --beta 2 --worm 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 510
+S_sep_11 --spec gen/h3.spec --beta 2 --worm 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 511
+S_sep_12 --spec gen/h3.spec --beta 2 --worm 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 512
+S_rot_1 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 1e6 --therm 1e5 --seed 501
+S_rot_2 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 1e6 --therm 1e5 --seed 502
+S_rot_3 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 1e6 --therm 1e5 --seed 503
+S_rot_4 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 1e6 --therm 1e5 --seed 504
+S_rot_5 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 1e6 --therm 1e5 --seed 505
+S_rot_6 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 1e6 --therm 1e5 --seed 506
+S_rot_7 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 1e6 --therm 1e5 --seed 507
+S_rot_8 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 1e6 --therm 1e5 --seed 508
+S_rot_9 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 1e6 --therm 1e5 --seed 509
+S_rot_10 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 1e6 --therm 1e5 --seed 510
+S_rot_11 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 1e6 --therm 1e5 --seed 511
+S_rot_12 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 1e6 --therm 1e5 --seed 512
+S_subsep_1 --spec gen/h3.spec --beta 2 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 501
+S_subsep_2 --spec gen/h3.spec --beta 2 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 502
+S_subsep_3 --spec gen/h3.spec --beta 2 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 503
+S_subsep_4 --spec gen/h3.spec --beta 2 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 504
+S_subsep_5 --spec gen/h3.spec --beta 2 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 505
+S_subsep_6 --spec gen/h3.spec --beta 2 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 506
+S_subsep_7 --spec gen/h3.spec --beta 2 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 507
+S_subsep_8 --spec gen/h3.spec --beta 2 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 508
+S_subsep_9 --spec gen/h3.spec --beta 2 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 509
+S_subsep_10 --spec gen/h3.spec --beta 2 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 510
+S_subsep_11 --spec gen/h3.spec --beta 2 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 511
+S_subsep_12 --spec gen/h3.spec --beta 2 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 512

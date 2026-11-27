@@ -1,0 +1,2 @@
+libc++abi: terminating due to uncaught exception of type std::runtime_error: Need at least two bins and closed measurements
+spec=lr/L12.spec comps=26 labels=72 diag_strings=305 templates=970 hermitian_pairing_failures=0

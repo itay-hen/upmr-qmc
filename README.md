@@ -20,6 +20,7 @@ visited energies. No time discretization is involved.
 | `make_tables.py`, `make_tables_mixed.py`, `make_tables_large.py`, `nl_summary.py` | regenerate the LaTeX tables of the paper from the raw outputs. |
 | `jobs.txt`, `jobsD.txt`, `gen/jobs.txt` | exact command lines behind every table. |
 | `runs/`, `gen/runs/`, `ed_ref.out`, `gen/ed_mixed.out` | raw outputs used in the paper. |
+| `ab/` | tests of separated pairs and open-word rotation: job lists, raw outputs, `bench_summary.py`, `seed_summary.py` (multi-seed errors). |
 | `lr/`, `qlm/`, `nl/` | large-system section: long-range chain (L ≤ 16), quantum link model (L ≤ 64), and the nonlocal-move efficiency study — specs, `jobs.txt`, `runs/`, and reference outputs (`ref*.out`). |
 
 ## Build and quick check
@@ -63,7 +64,9 @@ A model is a dict with `comps`, `terms` (list of `(tag, operator)`), `obs` (diag
 generated templates, `--tmax` = max template length, default 4), `--nonlocal 1` (re-rooting,
 inner-loop reversal, segment exchange; individually `--reroot`, `--reversal`, `--exchange` 0/1),
 `--targeted 0/1` (reversal draws its second endpoint among positions with the same state; default 1;
-the paper's production runs used 0), `--worm 1 --mu <mu>`. Basis-state shifts, swaps, and pair
+the paper's production runs used 0), `--worm 1 --mu <mu>`.
+`--seppair 1` adds separated pair insertion/deletion (c and cbar at two gaps, translating the
+walk between them); `--rotate 1` adds open-word rotation (needs `--worm 1`; null step on closed words). Basis-state shifts, swaps, and pair
 insertions/deletions are always on.
 
 Output: average phase, and for each quantity value and jackknife error — energy `E`, expansion

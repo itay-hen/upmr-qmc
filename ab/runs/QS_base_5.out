@@ -1,0 +1,9 @@
+spec=qlm/L16.spec comps=31 labels=30 diag_strings=31 templates=0 hermitian_pairing_failures=0
+beta=4 sub=1 reroot=0 reversal=0 exchange=0 worm=0 mu=1 seppair=0 rotate=0 seed=1605
+PHASE re 1.000000 0.000000 im 0.000000 0.000000
+RESULT E -12.822851 0.014080 q 52.219036 0.108067 H_hop -13.054759 0.027017 chiral_root -0.202515 0.017300 chiral -0.204732 0.002148 Eavg_root 0.036496 0.004504 Eavg 0.038028 0.001694 E2avg_root 0.158659 0.009226 E2avg 0.161949 0.001233
+steps_per_sweep 84 closed_frac 1.0000 ms_per_sweep 0.6293 tau_int_E 19.93 weight_check_fail 0 cpu_ms_per_sweep 0.6292 q_max 88
+  acc basis_lab 152/12582751 = 0.000
+  acc pair_del  834884/6290899 = 0.133
+  acc pair_ins  834910/6291167 = 0.133
+  acc swap      9852294/12581408 = 0.783

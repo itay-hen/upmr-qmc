@@ -1,0 +1,12 @@
+Q32_worm_mu2e-6 --spec qlm/L32.spec --beta 4 --sub 1 --worm 1 --mu 2e-6 --sweeps 2e5 --therm 5e4 --seed 77
+Q32_wormrot_mu2e-6 --spec qlm/L32.spec --beta 4 --sub 1 --worm 1 --rotate 1 --mu 2e-6 --sweeps 2e5 --therm 5e4 --seed 77
+Q32_new_mu2e-6 --spec qlm/L32.spec --beta 4 --sub 1 --seppair 1 --worm 1 --rotate 1 --mu 2e-6 --sweeps 2e5 --therm 5e4 --seed 77
+Q32_worm_mu5e-6 --spec qlm/L32.spec --beta 4 --sub 1 --worm 1 --mu 5e-6 --sweeps 2e5 --therm 5e4 --seed 77
+Q32_wormrot_mu5e-6 --spec qlm/L32.spec --beta 4 --sub 1 --worm 1 --rotate 1 --mu 5e-6 --sweeps 2e5 --therm 5e4 --seed 77
+Q32_new_mu5e-6 --spec qlm/L32.spec --beta 4 --sub 1 --seppair 1 --worm 1 --rotate 1 --mu 5e-6 --sweeps 2e5 --therm 5e4 --seed 77
+LR12_worm_mu5e-6 --spec lr/L12.spec --beta 2 --sub 1 --worm 1 --mu 5e-6 --sweeps 2e5 --therm 5e4 --seed 77
+LR12_wormrot_mu5e-6 --spec lr/L12.spec --beta 2 --sub 1 --worm 1 --rotate 1 --mu 5e-6 --sweeps 2e5 --therm 5e4 --seed 77
+LR12_new_mu5e-6 --spec lr/L12.spec --beta 2 --sub 1 --seppair 1 --worm 1 --rotate 1 --mu 5e-6 --sweeps 2e5 --therm 5e4 --seed 77
+LR12_worm_mu1e-5 --spec lr/L12.spec --beta 2 --sub 1 --worm 1 --mu 1e-5 --sweeps 2e5 --therm 5e4 --seed 77
+LR12_wormrot_mu1e-5 --spec lr/L12.spec --beta 2 --sub 1 --worm 1 --rotate 1 --mu 1e-5 --sweeps 2e5 --therm 5e4 --seed 77
+LR12_new_mu1e-5 --spec lr/L12.spec --beta 2 --sub 1 --seppair 1 --worm 1 --rotate 1 --mu 1e-5 --sweeps 2e5 --therm 5e4 --seed 77

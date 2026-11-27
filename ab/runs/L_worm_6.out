@@ -1,0 +1,12 @@
+spec=gen/h3.spec comps=2 labels=5 diag_strings=2 templates=0 hermitian_pairing_failures=0
+beta=2 sub=0 reroot=0 reversal=0 exchange=0 worm=1 mu=1 seppair=0 rotate=0 seed=1006
+PHASE re 1.000000 0.000000 im 0.000000 0.000000
+RESULT E -1.194812 0.002458 q 3.801433 0.010785 H_h -0.434960 0.001327 H_kap -0.491412 0.002218 H_coup -0.974344 0.003503 sz_root -0.355544 0.001853 sz -0.356245 0.001135 n_root 0.882734 0.005636 n 0.884027 0.004341
+steps_per_sweep 7 closed_frac 0.1522 ms_per_sweep 0.0051 tau_int_E 1.66 weight_check_fail 0 cpu_ms_per_sweep 0.0049 q_max 30
+  acc basis     341449/728851 = 0.468
+  acc basis_lab 267774/729974 = 0.367
+  acc pair_del  93516/363269 = 0.257
+  acc pair_ins  93970/364752 = 0.258
+  acc swap      325654/479259 = 0.679
+  acc worm_app  3363054/4783251 = 0.703
+  acc worm_ret  3363952/4787167 = 0.703

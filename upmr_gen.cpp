@@ -210,6 +210,7 @@ struct Sampler {
     vector<int> root, word; double logw = 0; cplx ph = 1; vector<double> En; vector<int> st;
     bool use_sub = false, use_nonlocal = false, use_worm = false; double mu = 1.0;
     bool use_reroot = false, use_rev = false, use_exch = false;   // individual nonlocal moves
+    bool use_sep = false, use_rot = false;                         // separated pairs, open-word rotation
     vector<vector<int>> templ; vector<int> templ_inv;
     std::map<string, std::pair<long,long>> stats; long weight_check_fail = 0;
 
@@ -230,6 +231,7 @@ struct Sampler {
             if (ad < 1e-14) { e.ok = false; e.logw = -INFINITY; return e; }
             e.ph *= d / ad; la += std::log(ad);
             std::copy(cur, cur + nc, nxt); m.apply(w[k], nxt);
+            if (!m.in_domain(nxt)) { e.ok = false; e.logw = -INFINITY; return e; }
             e.En[k+1] = m.E(nxt);
         }
         if (q % 2) e.ph = -e.ph;
@@ -274,6 +276,45 @@ struct Sampler {
             int j = Ri(q - 1); if (word[j+1] != m.labels[word[j]].inv) { stats["pair_del"].first++; return; }
             vector<int> w2 = word; w2.erase(w2.begin() + j, w2.begin() + j + 2);
             metro(root, w2, std::log((1 - pdel) / pdel / M), "pair_del");
+        }
+    }
+    // Separated pair insertion/deletion: insert c and cbar at two gaps a <= b, translating the walk
+    // between them by v_c. Insertion: c uniform among M labels, (a,b) uniform among the (q+1)(q+2)/2
+    // gap pairs, realized as positions j < k of c and cbar in the new word (a = j, b = k-1). Deletion:
+    // positions j < k uniform among the C(q,2) pairs, rejected unless (i_j, i_k) = (t, tbar). The
+    // position counts cancel, so the acceptance is that of adjacent pairs.
+    void sep_pair_move() {
+        const double pdel = 0.5; int M = m.labels.size(); int q = word.size();
+        if (U() < 1 - pdel) {
+            int j = Ri(q + 2), k = Ri(q + 1); if (k >= j) k++; else std::swap(j, k);   // j < k uniform
+            int c = Ri(M); vector<int> w2; w2.reserve(q + 2);
+            w2.insert(w2.end(), word.begin(), word.begin() + j); w2.push_back(c);
+            w2.insert(w2.end(), word.begin() + j, word.begin() + k - 1); w2.push_back(m.labels[c].inv);
+            w2.insert(w2.end(), word.begin() + k - 1, word.end());
+            metro(root, w2, std::log(pdel / (1 - pdel) * M), "sep_ins");
+        } else {
+            if (q < 2) { stats["sep_del"].first++; return; }
+            int j = Ri(q), k = Ri(q - 1); if (k >= j) k++; else std::swap(j, k);
+            if (word[k] != m.labels[word[j]].inv) { stats["sep_del"].first++; return; }
+            vector<int> w2 = word; w2.erase(w2.begin() + k); w2.erase(w2.begin() + j);
+            metro(root, w2, std::log((1 - pdel) / pdel / M), "sep_del");
+        }
+    }
+    // Open-word rotation (open words only; a null step on closed words): advance moves the first
+    // label to the end and the root to z_1; retreat moves the last label to the front and the root
+    // to z_0 - v_{k_l}. Head displacement is preserved; symmetric proposal.
+    void rotate_move() {
+        int q = word.size(); if (q < 1 || is_closed()) return;
+        vector<int> r2, w2;
+        if (U() < 0.5) {
+            r2.assign(st.begin() + nc, st.begin() + 2 * nc);
+            w2.assign(word.begin() + 1, word.end()); w2.push_back(word[0]);
+            metro(r2, w2, 0, "rot_adv");
+        } else {
+            r2 = root; m.apply(m.labels[word[q-1]].inv, &r2[0]);
+            if (!m.in_domain(&r2[0])) { stats["rot_ret"].first++; return; }
+            w2.push_back(word[q-1]); w2.insert(w2.end(), word.begin(), word.end() - 1);
+            metro(r2, w2, 0, "rot_ret");
         }
     }
     static double log_norderings(const vector<int>& cnt) {
@@ -377,12 +418,15 @@ struct Sampler {
         if (use_rev) menu.push_back(5);
         if (use_exch) menu.push_back(6);
         if (use_worm) { menu.push_back(7); menu.push_back(7); }
+        if (use_sep) menu.push_back(9);
+        if (use_rot) menu.push_back(10);                         // fixed slot; null step on closed words
         int mv = menu[Ri(menu.size())];
+        if (mv == 10) { rotate_move(); return; }
         if (!is_closed() && mv != 7) return;
         switch (mv) {
             case 0: basis_comp(); break; case 8: basis_label(); break; case 1: swap_move(); break; case 2: pair_move(); break;
             case 3: subcycle_move(); break; case 4: reroot_move(); break; case 5: reversal_move(); break;
-            case 6: exchange_move(); break; case 7: worm_move(); break;
+            case 6: exchange_move(); break; case 7: worm_move(); break; case 9: sep_pair_move(); break;
         }
     }
     // all minimal relations of length 3..tmax (multisets with zero total displacement and no
@@ -431,6 +475,7 @@ int main(int argc, char** argv) {
     S.use_exch = argd(argc, argv, "--exchange", S.use_nonlocal) > 0;
     S.targeted_reversal = argd(argc, argv, "--targeted", 1) > 0;
     S.use_worm = argd(argc, argv, "--worm", 0) > 0; S.mu = argd(argc, argv, "--mu", 1.0);
+    S.use_sep = argd(argc, argv, "--seppair", 0) > 0; S.use_rot = argd(argc, argv, "--rotate", 0) > 0;
     if (S.use_sub) S.make_templates((int)argd(argc, argv, "--tmax", 4));
     long bad = m.selftest(S.rng, 2000);
     printf("spec=%s comps=%d labels=%zu diag_strings=%zu templates=%zu hermitian_pairing_failures=%ld\n",
@@ -491,7 +536,7 @@ int main(int argc, char** argv) {
     };
     auto sre = stat([](const vector<double>& x) { return x[0]; });
     auto sim = stat([](const vector<double>& x) { return x[1]; });
-    printf("beta=%g sub=%d reroot=%d reversal=%d exchange=%d worm=%d mu=%g seed=%lu\n", beta, (int)S.use_sub, (int)S.use_reroot, (int)S.use_rev, (int)S.use_exch, (int)S.use_worm, S.mu, seed);
+    printf("beta=%g sub=%d reroot=%d reversal=%d exchange=%d worm=%d mu=%g seppair=%d rotate=%d seed=%lu\n", beta, (int)S.use_sub, (int)S.use_reroot, (int)S.use_rev, (int)S.use_exch, (int)S.use_worm, S.mu, (int)S.use_sep, (int)S.use_rot, seed);
     printf("PHASE re %.6f %.6f im %.6f %.6f\n", sre.first, sre.second, sim.first, sim.second);
     printf("RESULT");
     auto pr = [&](const string& nm, int i, double fac) {

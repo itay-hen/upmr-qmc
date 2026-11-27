@@ -1,0 +1,10 @@
+Q32_base --spec qlm/L32.spec --beta 4 --sub 1 --sweeps 2e5 --therm 5e4 --seed 77
+Q32_sep --spec qlm/L32.spec --beta 4 --sub 1 --seppair 1 --sweeps 2e5 --therm 5e4 --seed 77
+Q32_worm --spec qlm/L32.spec --beta 4 --sub 1 --worm 1 --sweeps 2e5 --therm 5e4 --seed 77
+Q32_wormrot --spec qlm/L32.spec --beta 4 --sub 1 --worm 1 --rotate 1 --sweeps 2e5 --therm 5e4 --seed 77
+Q32_new --spec qlm/L32.spec --beta 4 --sub 1 --seppair 1 --worm 1 --rotate 1 --sweeps 2e5 --therm 5e4 --seed 77
+LR12_base --spec lr/L12.spec --beta 2 --sub 1 --sweeps 2e5 --therm 5e4 --seed 77
+LR12_sep --spec lr/L12.spec --beta 2 --sub 1 --seppair 1 --sweeps 2e5 --therm 5e4 --seed 77
+LR12_worm --spec lr/L12.spec --beta 2 --sub 1 --worm 1 --sweeps 2e5 --therm 5e4 --seed 77
+LR12_wormrot --spec lr/L12.spec --beta 2 --sub 1 --worm 1 --rotate 1 --sweeps 2e5 --therm 5e4 --seed 77
+LR12_new --spec lr/L12.spec --beta 2 --sub 1 --seppair 1 --worm 1 --rotate 1 --sweeps 2e5 --therm 5e4 --seed 77

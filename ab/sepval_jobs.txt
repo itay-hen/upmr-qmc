@@ -1,0 +1,4 @@
+SV_Q16b4_a --spec qlm/L16.spec --beta 4 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 161
+SV_Q16b4_b --spec qlm/L16.spec --beta 4 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 162
+SV_LR8_a --spec lr/L8.spec --beta 2 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 81
+SV_LR8_b --spec lr/L8.spec --beta 2 --sub 1 --seppair 1 --sweeps 1e6 --therm 1e5 --seed 82

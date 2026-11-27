@@ -1,0 +1,24 @@
+QS_base_5 --spec qlm/L16.spec --beta 4 --sub 1  --sweeps 5e5 --therm 1e5 --seed 1605
+QS_base_6 --spec qlm/L16.spec --beta 4 --sub 1  --sweeps 5e5 --therm 1e5 --seed 1606
+QS_base_7 --spec qlm/L16.spec --beta 4 --sub 1  --sweeps 5e5 --therm 1e5 --seed 1607
+QS_base_8 --spec qlm/L16.spec --beta 4 --sub 1  --sweeps 5e5 --therm 1e5 --seed 1608
+QS_sep_5 --spec qlm/L16.spec --beta 4 --sub 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1605
+QS_sep_6 --spec qlm/L16.spec --beta 4 --sub 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1606
+QS_sep_7 --spec qlm/L16.spec --beta 4 --sub 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1607
+QS_sep_8 --spec qlm/L16.spec --beta 4 --sub 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1608
+QS_rr_1 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --sweeps 5e5 --therm 1e5 --seed 1601
+QS_rr_2 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --sweeps 5e5 --therm 1e5 --seed 1602
+QS_rr_3 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --sweeps 5e5 --therm 1e5 --seed 1603
+QS_rr_4 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --sweeps 5e5 --therm 1e5 --seed 1604
+QS_rr_5 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --sweeps 5e5 --therm 1e5 --seed 1605
+QS_rr_6 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --sweeps 5e5 --therm 1e5 --seed 1606
+QS_rr_7 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --sweeps 5e5 --therm 1e5 --seed 1607
+QS_rr_8 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --sweeps 5e5 --therm 1e5 --seed 1608
+QS_rrsep_1 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1601
+QS_rrsep_2 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1602
+QS_rrsep_3 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1603
+QS_rrsep_4 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1604
+QS_rrsep_5 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1605
+QS_rrsep_6 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1606
+QS_rrsep_7 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1607
+QS_rrsep_8 --spec qlm/L16.spec --beta 4 --sub 1 --reroot 1 --seppair 1 --sweeps 5e5 --therm 1e5 --seed 1608

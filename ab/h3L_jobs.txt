@@ -1,0 +1,128 @@
+L_worm_1 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1001
+L_worm_2 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1002
+L_worm_3 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1003
+L_worm_4 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1004
+L_worm_5 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1005
+L_worm_6 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1006
+L_worm_7 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1007
+L_worm_8 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1008
+L_worm_9 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1009
+L_worm_10 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1010
+L_worm_11 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1011
+L_worm_12 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1012
+L_worm_13 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1013
+L_worm_14 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1014
+L_worm_15 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1015
+L_worm_16 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1016
+L_worm_17 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1017
+L_worm_18 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1018
+L_worm_19 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1019
+L_worm_20 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1020
+L_worm_21 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1021
+L_worm_22 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1022
+L_worm_23 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1023
+L_worm_24 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1024
+L_worm_25 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1025
+L_worm_26 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1026
+L_worm_27 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1027
+L_worm_28 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1028
+L_worm_29 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1029
+L_worm_30 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1030
+L_worm_31 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1031
+L_worm_32 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1032
+L_worm_33 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1033
+L_worm_34 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1034
+L_worm_35 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1035
+L_worm_36 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1036
+L_worm_37 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1037
+L_worm_38 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1038
+L_worm_39 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1039
+L_worm_40 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1040
+L_worm_41 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1041
+L_worm_42 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1042
+L_worm_43 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1043
+L_worm_44 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1044
+L_worm_45 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1045
+L_worm_46 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1046
+L_worm_47 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1047
+L_worm_48 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1048
+L_worm_49 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1049
+L_worm_50 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1050
+L_worm_51 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1051
+L_worm_52 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1052
+L_worm_53 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1053
+L_worm_54 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1054
+L_worm_55 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1055
+L_worm_56 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1056
+L_worm_57 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1057
+L_worm_58 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1058
+L_worm_59 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1059
+L_worm_60 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1060
+L_worm_61 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1061
+L_worm_62 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1062
+L_worm_63 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1063
+L_worm_64 --spec gen/h3.spec --beta 2 --worm 1 --sweeps 4e6 --therm 1e5 --seed 1064
+L_rot_1 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1001
+L_rot_2 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1002
+L_rot_3 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1003
+L_rot_4 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1004
+L_rot_5 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1005
+L_rot_6 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1006
+L_rot_7 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1007
+L_rot_8 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1008
+L_rot_9 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1009
+L_rot_10 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1010
+L_rot_11 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1011
+L_rot_12 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1012
+L_rot_13 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1013
+L_rot_14 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1014
+L_rot_15 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1015
+L_rot_16 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1016
+L_rot_17 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1017
+L_rot_18 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1018
+L_rot_19 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1019
+L_rot_20 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1020
+L_rot_21 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1021
+L_rot_22 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1022
+L_rot_23 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1023
+L_rot_24 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1024
+L_rot_25 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1025
+L_rot_26 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1026
+L_rot_27 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1027
+L_rot_28 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1028
+L_rot_29 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1029
+L_rot_30 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1030
+L_rot_31 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1031
+L_rot_32 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1032
+L_rot_33 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1033
+L_rot_34 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1034
+L_rot_35 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1035
+L_rot_36 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1036
+L_rot_37 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1037
+L_rot_38 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1038
+L_rot_39 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1039
+L_rot_40 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1040
+L_rot_41 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1041
+L_rot_42 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1042
+L_rot_43 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1043
+L_rot_44 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1044
+L_rot_45 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1045
+L_rot_46 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1046
+L_rot_47 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1047
+L_rot_48 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1048
+L_rot_49 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1049
+L_rot_50 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1050
+L_rot_51 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1051
+L_rot_52 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1052
+L_rot_53 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1053
+L_rot_54 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1054
+L_rot_55 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1055
+L_rot_56 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1056
+L_rot_57 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1057
+L_rot_58 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1058
+L_rot_59 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1059
+L_rot_60 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1060
+L_rot_61 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1061
+L_rot_62 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1062
+L_rot_63 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1063
+L_rot_64 --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 4e6 --therm 1e5 --seed 1064

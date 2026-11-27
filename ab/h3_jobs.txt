@@ -1,0 +1,9 @@
+H_worm_a --spec gen/h3.spec --beta 2 --worm 1 --sweeps 2e6 --therm 1e5 --seed 41
+H_worm_b --spec gen/h3.spec --beta 2 --worm 1 --sweeps 2e6 --therm 1e5 --seed 42
+H_rot_a --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 2e6 --therm 1e5 --seed 43
+H_rot_b --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --sweeps 2e6 --therm 1e5 --seed 44
+H_sep_a --spec gen/h3.spec --beta 2 --worm 1 --seppair 1 --sweeps 2e6 --therm 1e5 --seed 45
+H_sep_b --spec gen/h3.spec --beta 2 --worm 1 --seppair 1 --sweeps 2e6 --therm 1e5 --seed 46
+H_all_a --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --seppair 1 --sweeps 2e6 --therm 1e5 --seed 47
+H_all_b --spec gen/h3.spec --beta 2 --worm 1 --rotate 1 --seppair 1 --sweeps 2e6 --therm 1e5 --seed 48
+H_sub_sep --spec gen/h3.spec --beta 2 --sub 1 --seppair 1 --sweeps 2e6 --therm 1e5 --seed 49
